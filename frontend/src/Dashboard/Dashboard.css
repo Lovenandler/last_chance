@@ -1,0 +1,1001 @@
+* {
+  overflow: hidden;
+  /* outline: red dashed 1px; */
+}
+.header {
+  background-color: #f2f2f2;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+  position: relative;
+}
+.google_div {
+  position: relative;
+  float: right;
+  height: 40px;
+}
+.tools_menu_btn_header {
+  background-image: url("https://img.icons8.com/?size=512&id=S5biqohaDgd1&format=png");
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  float: left;
+  font-size: 2rem;
+  left: 10px;
+  border: none;
+  background-color: transparent;
+}
+.start_call {
+  position: relative;
+  float: left;
+  top: -33px;
+  left: 50px;
+}
+.start_call {
+  appearance: none;
+  backface-visibility: hidden;
+  background-color: #2f80ed;
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 20px;
+  letter-spacing: normal;
+  line-height: 1.5;
+  outline: none;
+  overflow: hidden;
+  padding: 14px 30px;
+  position: relative;
+  text-decoration: none;
+  transform: translate3d(0, 0, 0);
+  transition: all 0.3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+}
+
+.start_call:hover {
+  background-color: #1366d6;
+  box-shadow: rgba(0, 0, 0, 0.05) 0 5px 30px, rgba(0, 0, 0, 0.05) 0 1px 4px;
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 0.35s;
+}
+.create_call_title {
+  position: relative;
+  top: -10px;
+}
+
+.start_call:hover:after {
+  opacity: 0.5;
+}
+
+.start_call:active {
+  box-shadow: rgba(0, 0, 0, 0.1) 0 3px 6px 0, rgba(0, 0, 0, 0.1) 0 0 10px 0,
+    rgba(0, 0, 0, 0.1) 0 1px 4px -1px;
+  transform: translateY(2px);
+  transition-duration: 0.35s;
+}
+
+.start_call:active:after {
+  opacity: 1;
+}
+
+@media (min-width: 768px) {
+  .start_call {
+    padding: 14px 22px;
+    width: 176px;
+  }
+}
+.google_exit {
+  position: relative;
+  float: right;
+  right: -210px;
+  top: 3px;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: black;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 30px;
+  min-width: 0;
+  height: 30px;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 10%;
+  will-change: transform;
+}
+.exit_google_title {
+  position: relative;
+  top: -10px;
+}
+.google_exit:disabled {
+  pointer-events: none;
+}
+
+.google_exit:hover {
+  color: #fff;
+  background-color: red;
+}
+
+.google_exit:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.exit_icon {
+  width: 21%;
+  position: relative;
+  right: 8%;
+  top: -8px;
+  float: right;
+}
+.user_name_input {
+  background-color: transparent;
+  border: none;
+  position: relative;
+  float: right;
+  right: 10px;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  top: 10px;
+  width: 15%;
+  color: black;
+}
+.sign_google_btn {
+  position: relative;
+  float: right;
+  top: 3px;
+  right: 165px;
+  appearance: none;
+  background-color: white;
+  border: none;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 25px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: left;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 15%;
+  height: 30px;
+  will-change: transform;
+}
+.enter_google_title {
+  position: relative;
+  top: -10px;
+}
+.google_icon {
+  width: 11%;
+  position: relative;
+  right: -3%;
+  top: -10px;
+  float: right;
+}
+
+.sign_google_btn:disabled {
+  pointer-events: none;
+}
+
+.sign_google_btn:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+}
+
+.sign_google_btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.dashboard_active_users_list {
+  position: relative;
+  float: right;
+  right: 20px;
+  top: -765px;
+  background: none;
+  background: #f2f2f2;
+  border-radius: 20px;
+  width: 20.5%;
+  height: 600px;
+}
+.create_call_container{
+    background-color: #EBCFB2;
+    border-radius: 30px;
+    width: 50%;
+}
+._cam{
+    position: relative;
+    top: 10px;
+    left: 23px;
+    width: 250px;
+  height: 250px;
+  border-radius: 125px;
+  mask-image: radial-gradient(circle, white 100%, black 100%);
+}
+.video_cam{
+    width: 500px;
+  height: 500px;
+  position: absolute;
+  top: -125px;
+  left: -125px;
+}
+.dashboard_content_container{
+    
+    background-color: #fff;
+    height: 600px;
+    border-radius: 30px;
+}
+.dashboard_rooms_container{
+    width: 100px;
+    height: 100px;
+}
+.main_container {
+  height: 800px;
+}
+.main_instrumental_container {
+  position: relative;
+  float: left;
+  width: 23.5%;
+  height: 600px;
+  left: 37px;
+  top: 40px;
+  background: none;
+  background: #f2f2f2;
+  border-radius: 30px;
+}
+.space_buttons_container {
+  position: relative;
+  top: 20px;
+  left: 22px;
+  width: 315px;
+  height: 148px;
+  display: grid;
+  grid-template-columns: 58px 58px 58px 58px;
+
+  background: #dce6e7;
+  border-radius: 30px;
+}
+.nature_btn_space {
+  position: relative;
+  left: 30px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  right: 10px;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/volcano_1f30b.png");
+}
+.anime_btn_space {
+  position: relative;
+  left: 40px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/flag-japan_1f1ef-1f1f5.png");
+}
+.pets_btn_space {
+  position: relative;
+  left: 50px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/hamster_1f439.png");
+}
+.abstract_btn_space {
+  position: relative;
+  left: 60px;
+  cursor: pointer;
+  top: 15px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/moai_1f5ff.png");
+}
+.coffee_btn_space {
+  position: relative;
+  left: 30px;
+  top: 25px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  top: 7px;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/hot-beverage_2615.png");
+}
+.lofi_btn_space {
+  position: relative;
+  left: 40px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  top: 7px;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/videocassette_1f4fc.png");
+}
+.library_btn_space {
+  position: relative;
+  left: 50px;
+  top: 15px;
+  cursor: pointer;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  top: 7px;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/books_1f4da.png");
+}
+.walk_btn_space {
+  position: relative;
+  left: 60px;
+  cursor: pointer;
+  top: 15px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  border-radius: 25px;
+  float: left;
+  width: 50.9px;
+  height: 51.5px;
+  background: #ffffff;
+  position: relative;
+  top: 7px;
+  background-size: cover;
+  border: none;
+  background-size: 30px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("https://em-content.zobj.net/thumbs/120/apple/354/person-walking_1f6b6.png");
+}
+.instrument_buttons_container {
+  width: 315px;
+  height: 395px;
+  top: 30px;
+  left: 22px;
+  display: grid;
+  grid-template-columns: 150px 150px;
+  position: relative;
+  background-color: transparent;
+  border-radius: 30px;
+}
+.calendar_space{
+  background-color: #dce6e7;
+  width: 30%;
+  border-radius: 20px;
+}
+.calendar_button_exit{
+  position: relative;
+  float: right;
+  width: 50%;
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  border-radius: 15px;
+  color: black;
+  cursor: pointer;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 13px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 30px;
+  min-width: 0;
+  height: 30px;
+  outline: none;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+.calendar_button_exit:disabled {
+  pointer-events: none;
+}
+
+.calendar_button_exit:hover {
+  color: #fff;
+  background-color: red;
+}
+
+.calendar_button_exit:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.events_content{
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.calendar_btn {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  cursor: pointer;
+  border: none;
+  height: 95px;
+}
+.calendar_btn:hover{
+  background-color: #efb0b2;
+}
+.timer_btn {
+  position: relative;
+  top: 20px;
+  left: 15px;
+  cursor: pointer;
+  border: none;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  height: 95px;
+}
+.timer_space{
+  background: #FFFFFF;
+border-radius: 30px;
+width: 275px;
+height: 400px;
+top: 30px;
+float: left;
+position: relative;
+}
+.notes_space{
+  float: left;
+  background: #AFC2D5;
+  position: relative;
+border-radius: 20px;
+width: 280px;
+height: 204px;
+}
+.notes_icon{
+  width: 28px;
+height: 28px;
+position: relative;
+float: left;
+left: 20px;
+background-color: transparent;
+top: 10px;
+}
+.notes_instrument_title{
+  position: relative;
+  top: 10px;
+  left: 30px;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  background-color: transparent;
+}
+.notes_text{
+  background: #FFFFFF;
+border-radius: 15px;
+width: 226px;
+font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+height: 123px;
+border: none;
+position: relative;
+top: 35px;
+right: 7px;
+}
+.close_active_users_list {
+  background-image: url("https://img.icons8.com/?size=512&id=kuXjuOT6Xkp1&format=png");
+  background-size: cover;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 0px;
+  right: 3%;
+  float: right;
+  font-size: 2rem;
+  border: none;
+  background-color: transparent;
+}
+.label_users{
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  text-align: center;
+}
+.main_section{
+  background-color: #FFFFFF;
+}
+.settings_label{
+  text-align: center;
+  background: #FFFFFF;
+}
+.configure_section_form{
+  background: #FFFFFF;
+}
+.configure_section_form_div{
+  background: #FFFFFF;
+}
+.focus_time_label{
+  background: #FFFFFF;
+  position: relative;
+  left: 5px;
+}
+.input_focus_time{
+  position: relative;
+  left: 40px;
+  border: none;
+  width: 80px;
+  border-bottom: 2px solid black;
+  background: #FFFFFF;
+}
+.break_time_container{
+  background: #FFFFFF;
+}
+.break_time_input{
+  position: relative;
+  left: 17px;
+  border: none;
+  width: 80px;
+  border-bottom: 2px solid black;
+  background: #FFFFFF;
+}
+.main__section--icons{
+  background: #FFFFFF;
+}
+.submit-btn{
+  background-color: #FFFFFF;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #222222;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px;
+  margin: 0;
+  position: relative;
+  left: 70px;
+  top: 15px;
+  outline: none;
+  padding: 13px 23px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  touch-action: manipulation;
+  transition: box-shadow .2s,-ms-transform .1s,-webkit-transform .1s,transform .1s;
+  user-select: none;
+  -webkit-user-select: none;
+  width: auto;
+}
+
+.submit-btn:focus-visible {
+  box-shadow: #222222 0 0 0 2px, rgba(255, 255, 255, 0.8) 0 0 0 4px;
+  transition: box-shadow .2s;
+}
+
+.submit-btn:active {
+  background-color: #F7F7F7;
+  border-color: #000000;
+  transform: scale(.96);
+}
+
+.submit-btn:disabled {
+  border-color: #DDDDDD;
+  color: #DDDDDD;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.configure_section_btn{
+  height: 100px;
+  background: #FFFFFF;
+}
+.break_time_label{
+  background: #FFFFFF;
+  position: relative;
+  left: 5px;
+}
+.settings_timer_icon{
+  width: 36px;
+  height: 36px;
+  background: transparent;
+}
+.restart_icon{
+  width: 30px;
+  height: 30px;
+  top: 5px;
+  background: transparent;
+  position: relative;
+}
+.play_icon{
+  width: 36px;
+  height: 36px;
+  background: transparent;
+}
+.settings_timer_btn{
+  width: 39px;
+  border: none;
+  float: right;
+  height: 39px;
+  cursor:pointer;
+  position: relative;
+  right: 45px;
+  top: 5px;
+  background-color: transparent;
+}
+.play_timer_img{
+  border: none;
+  background: #FFFFFF;
+}
+textarea {
+  padding: 5px;
+}
+.base_time_label{
+  position: relative;
+  text-align: center;
+  background: #FFFFFF;
+}
+.base__timer--label{
+  background: #FFFFFF;
+}
+.base_time_name{
+  text-align: center;
+  background: #FFFFFF;
+}
+.settings_info{
+  background: #FFFFFF;
+  width: 300px;
+  height: 50px;
+  position: relative;
+}
+.btn-play-pause{
+  width: 36px;
+  height: 36px;
+  background: #FFFFFF;
+  position: relative;
+  float: left;
+  left: 100px;
+}
+.btn-restart{
+  position: relative;
+  float: right;
+  right: 100px;
+  background: #FFFFFF;
+}
+.main_section{
+  background-color: #FFFFFF;
+}
+.instrument_icon {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  float: left;
+  position: relative;
+  left: 10px;
+  top: -10px;
+  background-color: transparent;
+}
+.instrument_icon_2 {
+  width: 45px;
+  height: 45px;
+  float: left;
+  cursor: pointer;
+  position: relative;
+  left: 10px;
+  top: -10px;
+  background-color: transparent;
+}
+.arrow_icon {
+  width: 29px;
+  float: right;
+  height: 29px;
+  cursor: pointer;
+  position: relative;
+  right: 10px;
+  top: -10px;
+  background-color: transparent;
+}
+.instrument_title {
+  position: relative;
+  top: 20px;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  cursor: pointer;
+  background-color: transparent;
+  right: 23px;
+}
+.instrument_title_2 {
+  position: relative;
+  top: 49px;
+  cursor: pointer;
+  right: 10px;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: transparent;
+}
+.notes_btn {
+  position: relative;
+  top: 20px;
+  cursor: pointer;
+  border: none;
+  left: 20px;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  height: 95px;
+}
+.todo_space{
+  background-color: #dce6e7;
+  border-radius: 20px;
+  width: 15%;
+  height: 30%;
+  max-height: 30%;
+}
+.add_todo_btn{
+  position: relative;
+  left: 23px;
+  top: 5px;
+    appearance: none;
+    backface-visibility: hidden;
+    background-color: #2f80ed;
+    border-radius: 10px;
+    border-style: none;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-family: Inter, -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
+      sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    height: 20px;
+    letter-spacing: normal;
+    line-height: 1.5;
+    outline: none;
+    overflow: hidden;
+    padding: 14px 30px;
+    position: relative;
+    text-decoration: none;
+    transform: translate3d(0, 0, 0);
+    transition: all 0.3s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: top;
+    white-space: nowrap;
+  }
+  
+  .add_todo_btn:hover {
+    background-color: #1366d6;
+    box-shadow: rgba(0, 0, 0, 0.05) 0 5px 30px, rgba(0, 0, 0, 0.05) 0 1px 4px;
+    opacity: 1;
+    transform: translateY(0);
+    transition-duration: 0.35s;
+  }
+
+.todo_container{
+  position: relative;
+  float: left;
+  overflow-y:auto;
+  left: 30px;
+  height: 110px;
+  top: 5%
+}
+.btn_container{
+  height: 50px;
+}
+.buttons_todo_container{
+  position: relative;
+  left: 50px;
+}
+.label_todo{
+  text-align: center;
+  width: 100%;
+  position: relative;
+  left: 75px;
+  top: 3%;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.add_btn_title{
+  position: relative;
+  top: -12px;
+}
+input {
+  outline: 0;
+  border-width: 0 0 1px;
+  border-color: #1366d6;
+  background-color: transparent;
+}
+input:focus {
+  border-color: #609966;
+}
+.button-complete{
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  border: none;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url("https://img.icons8.com/?size=512&id=VfY8rwjNJSAQ&format=png");
+}
+.button-edit{
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 5px;
+  background-size: cover;
+  border: none;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url("https://img.icons8.com/?size=512&id=71201&format=png");
+}
+.submit_todo_form{
+  position: relative;
+  top: 20px;
+  left: 30px;
+  width: 100%;
+  height: 150px;
+}
+.input_container{
+  position: relative;
+  
+}
+.button-delete{
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  border: none;
+  background-size: 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  cursor: pointer;
+  background-image: url("https://img.icons8.com/?size=512&id=14237&format=png"); 
+}
+.button-delete:hover{
+  border-radius: 30px;
+  background-color: red;
+}
+.button-complete:hover {
+  border-radius: 30px;
+  background-color: greenyellow;
+}
+.todo_btn {
+  position: relative;
+  top: 20px;
+  left: 15px;
+  cursor: pointer;
+  border: none;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  height: 95px;
+}
+.video_btn {
+  position: relative;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  border: none;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  height: 95px;
+}
+.sound_btn {
+  position: relative;
+  top: 20px;
+  left: 15px;
+  cursor: pointer;
+  border: none;
+  background: #dce6e7;
+  border-radius: 25px;
+  width: 128px;
+  height: 95px;
+}

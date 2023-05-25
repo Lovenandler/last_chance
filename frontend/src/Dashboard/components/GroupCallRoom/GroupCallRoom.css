@@ -1,0 +1,22 @@
+.group_call_room_container{
+  margin-top: 30px;
+}
+.group_call_title{
+  font-size: 20px;
+  margin-left: 70px;
+}
+.conversation_button{
+  width: 45px;
+  height: 45px;
+  margin-left: 70px;
+  margin-top: 20px;
+  background-color: white;
+  border-radius: 50%;
+  border-width: 1px;
+  border-color: black;
+}
+.video
+.icon_buttons_call{
+  width: 30px;
+  height: 30px;
+}
