@@ -2,14 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
 import { Provider } from 'react-redux';
-import store from './store/store';
+import storage from './storage/storage';
 import App from './App';
 import { ProSidebarProvider } from "react-pro-sidebar";
 //import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={store}>
+    <Provider store={storage}>
       <ProSidebarProvider>
       <App />
       </ProSidebarProvider>

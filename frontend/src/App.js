@@ -4,9 +4,9 @@ Switch,
 Route
 } from 'react-router-dom';
 import {useEffect} from 'react';
-import {connectWithWebSocket} from './utils/wssConnection/socketConnection';
-import MainPage from './Dashboard/Main';
-import StartPage from './LoginPage/StartPage';
+import {connectWithWebSocket} from './connection/socketConnection/socketConnection';
+import MainPage from './mainPage/Main';
+import StartPage from './startPage/StartPage';
 
 function App() {
   useEffect(() => {
