@@ -35,7 +35,7 @@ export const connectWithMyPeer = () => {
 export const createNewGroupCall = () => {
   groupCallHost = true;
   socketConnection.registerGroupCall({
-    username: store.getState().dashboard.username,
+    username: store.getState().mainpage.username,
     peerId: myPeerId
   });
 

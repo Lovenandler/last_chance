@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import UsersList from "./components/ActiveUsersList/UsersList";
 import * as webRTCHandler from "../utils/webRTC/webRTCHandler";
 import * as webRTCGroupHandler from "../utils/webRTC/GroupCallHandler";
-import DirectCall from "./components/DirectCall/DirectCall";
+import Call from "./components/DirectCall/Call";
 import { connect } from "react-redux";
 import { LoginSignout } from "./components/Calendar/LoginSignout";
 import CallInfo from "./components/Dashboardinformation/CallInfo";
@@ -23,11 +23,11 @@ import { db } from "./components/Todo/firebase";
 import AddTodo from "./components/Todo/AddTodo";
 import VideoPlayer from "./components/Video/VideoPlayer";
 import AudioPlayer from "./components/Audio/AudioPlayer";
-import MainPage from "./components/Pomodoro/MainPage";
+import MainPagePomodoro from "./components/Pomodoro/MainPage";
 import ConfigurePage from "./components/Pomodoro/ConfigurePage";
 import Draggable from "react-draggable";
 import SignIn from "../googleSignIn/SignIn";
-const Dashboard = ({ username, callState }) => {
+const MainPage = ({ username, callState }) => {
   const [isConfigure, setIsConfigure] = useState(false);
   const [pomodoro, setPomodoro] = useState(0);
   const [pomoBreak, setPomoBreak] = useState(0);
@@ -466,7 +466,7 @@ const Dashboard = ({ username, callState }) => {
         {!showPomodoro && (
               <Draggable>
                 <div className="timer_space" id="timer">
-                  <MainPage
+                  <MainPagePomodoro
                     updateConfigure={updateConfigure}
                     pomodoro={pomodoro}
                     pomoBreak={pomoBreak}
@@ -516,7 +516,7 @@ const Dashboard = ({ username, callState }) => {
               <div className="create_call_container">
                 
                 <div className="dashboard_content_container" id="call">
-                  <DirectCall />
+                  <Call />
                   {callState !== callStates.CALL_IN_PROGRESS && (
                     <CallInfo username={username} />
                   )}
@@ -572,9 +572,9 @@ const Dashboard = ({ username, callState }) => {
   );
 };
 
-const mapStateToProps = ({ call, dashboard }) => ({
+const mapStateToProps = ({ call, mainpage }) => ({
   ...call,
-  ...dashboard,
+  ...mainpage,
 });
 
-export default connect(mapStateToProps)(Dashboard);
+export default connect(mapStateToProps)(MainPage);

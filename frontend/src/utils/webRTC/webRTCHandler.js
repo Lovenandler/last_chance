@@ -95,7 +95,7 @@ export const callToOtherUser = (calleeDetails) => {
   socketConnection.sendPreOffer({
     callee: calleeDetails,
     caller: {
-      username: store.getState().dashboard.username
+      username: store.getState().mainpage.username
     }
   });
 };

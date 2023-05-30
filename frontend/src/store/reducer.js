@@ -3,6 +3,6 @@ import mainReducer from './reducers/mainReducer';
 import callReducer from './reducers/callReducer';
 
 export default combineReducers({
-  dashboard: mainReducer,
+  mainpage: mainReducer,
   call: callReducer
 });

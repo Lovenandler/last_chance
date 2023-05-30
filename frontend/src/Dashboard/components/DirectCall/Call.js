@@ -9,7 +9,7 @@ import { callStates, setCallRejected, setLocalCameraEnabled, setLocalMicrophoneE
 import ControlButtons from '../ConversationButtons/ControlButtons';
 import Messenger from '../Messenger/Messenger';
 
-const DirectCall = (props) => {
+const Call = (props) => {
   const {
     localStream,
     remoteStream,
@@ -53,4 +53,4 @@ function mapDispatchToProps (dispatch) {
   };
 }
 
-export default connect(mapStoreStateToProps, mapDispatchToProps)(DirectCall);
+export default connect(mapStoreStateToProps, mapDispatchToProps)(Call);

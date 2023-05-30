@@ -1,12 +1,12 @@
 import { React, useState, useEffect } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../Todo/firebase";
-import ActiveUsersListItem from "./UsersListItem";
+import UsersListItem from "./UsersListItem";
 import { connect } from "react-redux";
 
 import "./UsersList.css";
 
-const ActiveUsersList = ({ activeUsers, callState }) => {
+const UsersList = ({ activeUsers, callState }) => {
   const [users, setUsers] = useState([]);
 
   const fetchPost = async () => {
@@ -28,9 +28,9 @@ const ActiveUsersList = ({ activeUsers, callState }) => {
     fetchPost();
   }, []);
   return (
-    <div className="active_user_list_container">
+    <div className="user_list_container">
       {users.map((activeUser, i) => (
-        <ActiveUsersListItem
+        <UsersListItem
           key={i}
           activeUser={activeUser}
           callState={callState}
@@ -40,9 +40,9 @@ const ActiveUsersList = ({ activeUsers, callState }) => {
   );
 };
 
-const mapStateToProps = ({ dashboard, call }) => ({
-  ...dashboard,
+const mapStateToProps = ({ mainpage, call }) => ({
+  ...mainpage,
   ...call,
 });
 
-export default connect(mapStateToProps)(ActiveUsersList);
+export default connect(mapStateToProps)(UsersList);

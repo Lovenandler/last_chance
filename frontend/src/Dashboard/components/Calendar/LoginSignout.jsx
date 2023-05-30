@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 
 export const LoginSignout = () => {
-  const gapi = window.gapi;
+  const googleApi = window.gapi;
   const google = window.google;
 
   const CLIENT_ID = '620057456341-ju225f3hvbd0fiu5gfm9ge59skmaiun4.apps.googleusercontent.com';
@@ -12,27 +12,26 @@ export const LoginSignout = () => {
   const accessToken = localStorage.getItem('access_token');
   const expiresIn = localStorage.getItem('expires_in');
 
-  let gapiInited = false, gisInited = false, tokenClient;
+  let googleApiInitialized = false, googleDataInited = false, tokenClient;
 
   useEffect(() => {
-    //const expiryTime = new Date().getTime() + expiresIn * 1000;
-    gapiLoaded()
-    gisLoaded()
+    googleApiLoad()
+    googleDataLoaded()
   }, [])
 
-  function gapiLoaded() {
-    gapi.load('client', initializeGapiClient);
+  function googleApiLoad() {
+    googleApi.load('client', initializeGoogleApiClient);
   }
 
-  async function initializeGapiClient() {
-    await gapi.client.init({
+  async function initializeGoogleApiClient() {
+    await googleApi.client.init({
       apiKey: API_KEY,
       discoveryDocs: [DISCOVERY_DOC],
     });
-    gapiInited = true;
+    googleApiInitialized = true;
 
     if (accessToken && expiresIn) {
-      gapi.client.setToken({
+      googleApi.client.setToken({
         access_token: accessToken,
         expires_in: expiresIn,
       });
@@ -40,17 +39,17 @@ export const LoginSignout = () => {
     }
   }
 
-  function gisLoaded() {
+  function googleDataLoaded() {
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
       callback: '', // defined later
     });
 
-    gisInited = true;
+    googleDataInited = true;
   }
 
-  //Enables user interaction after all libraries are loaded.
+  //Позволяет взаимодействовать с пользователем после загрузки библиотек.
 
   function handleAuthClick() {
     tokenClient.callback = async (resp) => {
@@ -58,28 +57,27 @@ export const LoginSignout = () => {
         throw (resp);
       }
       await listUpcomingEvents();
-      const { access_token, expires_in } = gapi.client.getToken();
+      const { access_token, expires_in } = googleApi.client.getToken();
       localStorage.setItem('access_token', access_token);
       localStorage.setItem('expires_in', expires_in)
     };
 
     if (!(accessToken && expiresIn)) {
-      // Prompt the user to select a Google Account and ask for consent to share their data
-      // when establishing a new session.
+      // Выбор учетную запись Google и согласие на передачу данных при создании новой сессии.
       tokenClient.requestAccessToken({ prompt: 'consent' });
     } else {
-      // Skip display of account chooser and consent dialog for an existing session.
+      // Пропустить выбор учетной записи и согласия для существующего сеанса.
       tokenClient.requestAccessToken({ prompt: '' });
     }
   }
 
-  //Sign out the user upon button click.
+  //Выход из аккаунта
 
   function handleSignoutClick() {
-    const token = gapi.client.getToken();
+    const token = googleApi.client.getToken();
     if (token !== null) {
       google.accounts.oauth2.revoke(token.access_token);
-      gapi.client.setToken('');
+      googleApi.client.setToken('');
       localStorage.clear();
     }
   }
@@ -95,7 +93,7 @@ export const LoginSignout = () => {
         'maxResults': 10,
         'orderBy': 'startTime',
       };
-      response = await gapi.client.calendar.events.list(request);
+      response = await googleApi.client.calendar.events.list(request);
     } catch (err) {
       document.getElementById('content').innerText = err.message;
       return;
@@ -106,7 +104,7 @@ export const LoginSignout = () => {
       document.getElementById('content').innerText = 'Событий не найдено.';
       return;
     }
-    // Flatten to string to display
+    // настройка отображения событий
     const output = events.reduce(
       (str, event) => `${str}${event.summary} (${event.start.dateTime || event.start.date})\n`,'События:\n');
     document.getElementById('content').innerText = output;

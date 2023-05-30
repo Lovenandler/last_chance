@@ -9,7 +9,7 @@ const CallWindow = () => {
   };
 
   return (
-    <div className='direct_calling_dialog background_secondary_color'>
+    <div className='call_window_container'>
       <span>Звоним</span>
       <div onClick={handleHangUpButtonPressed}>
         <MdCallEnd style={{ width: '20px', height: '20px', fill: '#e6e5e8' }} />

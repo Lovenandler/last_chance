@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-// import './CallRejectedDialog.css';
+// import './RejectedCallWindow.css';
 
 const RejectedCallWindow = ({ reason, hideCallRejectedDialog }) => {
   useEffect(() => {
@@ -14,7 +14,7 @@ const RejectedCallWindow = ({ reason, hideCallRejectedDialog }) => {
   }, []);
 
   return (
-    <div className='call_rejected_dialog background_secondary_color'>
+    <div className='rejected_call_window_container'>
       <span>
         {reason}
       </span>
