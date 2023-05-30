@@ -1,4 +1,4 @@
-.active_user_list_image{
+.user_list_image{
   width: 45px;
   height: 45px;
   position: relative;
@@ -6,7 +6,7 @@
   left: 30px;
   top: 6px;
 }
-.active_user_list_text{
+.user_list_text{
   position: relative;
   float: right;
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
@@ -15,7 +15,7 @@
   top: 20px;
   color: black;
 }
-.active_user_list_item{
+.user_list_item{
   position: relative;
   left: 30px;
   top: 20px;
@@ -24,7 +24,7 @@
 height: 56px;
 border-radius: 10px;
 }
-.active_user_list_container{
+.user_list_container{
   height: 200px;
   position: relative;
   top: 45px;

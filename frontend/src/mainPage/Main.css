@@ -30,7 +30,7 @@
 .start_call {
   position: relative;
   float: left;
-  top: -33px;
+  top: 5px;
   left: 50px;
 }
 .start_call {
@@ -97,61 +97,7 @@
     width: 176px;
   }
 }
-.google_exit {
-  position: relative;
-  float: right;
-  right: -210px;
-  top: 3px;
-  appearance: none;
-  background-color: transparent;
-  border: none;
-  border-radius: 15px;
-  box-sizing: border-box;
-  color: black;
-  cursor: pointer;
-  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 13px;
-  font-weight: 600;
-  line-height: normal;
-  margin: 0;
-  min-height: 30px;
-  min-width: 0;
-  height: 30px;
-  outline: none;
-  padding: 16px 24px;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 10%;
-  will-change: transform;
-}
-.exit_google_title {
-  position: relative;
-  top: -10px;
-}
-.google_exit:disabled {
-  pointer-events: none;
-}
 
-.google_exit:hover {
-  color: #fff;
-  background-color: red;
-}
-
-.google_exit:active {
-  box-shadow: none;
-  transform: translateY(0);
-}
-.exit_icon {
-  width: 21%;
-  position: relative;
-  right: 8%;
-  top: -8px;
-  float: right;
-}
 .user_name_input {
   background-color: transparent;
   border: none;
@@ -164,11 +110,16 @@
   width: 15%;
   color: black;
 }
+.link_to_page{
+  position: relative;
+  top: 5px;
+  float: right;
+}
 .sign_google_btn {
   position: relative;
   float: right;
   top: 3px;
-  right: 165px;
+  right: 20px;
   appearance: none;
   background-color: white;
   border: none;
@@ -191,7 +142,7 @@
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 15%;
+  width: 7%;
   height: 30px;
   will-change: transform;
 }
@@ -200,10 +151,10 @@
   top: -10px;
 }
 .google_icon {
-  width: 11%;
+  width: 40%;
   position: relative;
-  right: -3%;
-  top: -10px;
+  right: -13%;
+  top: -27px;
   float: right;
 }
 
@@ -213,7 +164,7 @@
 
 .sign_google_btn:hover {
   color: #fff;
-  background-color: #1a1a1a;
+  background-color: #BF4342;
 }
 
 .sign_google_btn:active {
@@ -223,12 +174,24 @@
 .dashboard_active_users_list {
   position: relative;
   float: right;
-  right: 20px;
+  right: -100px;
   top: -765px;
   background: none;
   background: #f2f2f2;
   border-radius: 20px;
   width: 20.5%;
+  height: 600px;
+}
+.mainpage_users_list_closed {
+  position: relative;
+  float: right;
+  right: 20px;
+  top: -765px;
+  visibility: hidden;
+  background: none;
+  background: #f2f2f2;
+  border-radius: 20px;
+  width: 8.5%;
   height: 600px;
 }
 .create_call_container{
@@ -525,7 +488,7 @@
   height: 95px;
 }
 .calendar_btn:hover{
-  background-color: #efb0b2;
+  background-color: #b4e915;
 }
 .timer_btn {
   position: relative;
@@ -537,6 +500,9 @@
   border-radius: 25px;
   width: 128px;
   height: 95px;
+}
+.timer_btn:hover{
+  background-color: #b4e915;
 }
 .timer_space{
   background: #FFFFFF;
@@ -582,13 +548,26 @@ position: relative;
 top: 35px;
 right: 7px;
 }
-.close_active_users_list {
-  background-image: url("https://img.icons8.com/?size=512&id=kuXjuOT6Xkp1&format=png");
+.close_users_list {
+  background-image: url("https://img.icons8.com/?size=512&id=22076&format=png");
   background-size: cover;
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
   position: relative;
-  top: 0px;
+  top: 5px;
+  right: 3%;
+  float: right;
+  font-size: 2rem;
+  border: none;
+  background-color: transparent;
+}
+.open_users_list {
+  background-image: url("https://img.icons8.com/?size=512&id=16139&format=png");
+  background-size: cover;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 5px;
   right: 3%;
   float: right;
   font-size: 2rem;
@@ -823,6 +802,9 @@ textarea {
   width: 128px;
   height: 95px;
 }
+.notes_btn:hover{
+  background-color: #b4e915;
+}
 .todo_space{
   background-color: #dce6e7;
   border-radius: 20px;
@@ -977,6 +959,9 @@ input:focus {
   width: 128px;
   height: 95px;
 }
+.todo_btn:hover{
+  background-color: #b4e915;
+}
 .video_btn {
   position: relative;
   top: 20px;
@@ -988,6 +973,9 @@ input:focus {
   width: 128px;
   height: 95px;
 }
+.video_btn:hover{
+  background-color: #b4e915;
+}
 .sound_btn {
   position: relative;
   top: 20px;
@@ -998,4 +986,7 @@ input:focus {
   border-radius: 25px;
   width: 128px;
   height: 95px;
+}
+.sound_btn:hover{
+  background-color: #b4e915;
 }

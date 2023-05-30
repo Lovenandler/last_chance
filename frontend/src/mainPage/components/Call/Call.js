@@ -4,7 +4,7 @@ import LocalVideoView from '../LocalVideoView/LocalVideoView';
 import RemoteVideoView from '../RemoteVideoView/RemoteVideoView';
 import RejectedCallWindow from '../CallRejectedDialog/RejectedCallWindow';
 import IncomingCallDialog from '../IncomingCallDialog/IncomingCallDialog';
-import CallWindow from '../CallingDialog/CallWindow';
+import CallWindow from '../CallWindow/CallWindow';
 import { callStates, setCallRejected, setLocalCameraEnabled, setLocalMicrophoneEnabled, setMessage } from '../../../storage/actions/callActions';
 import ControlButtons from '../ConversationButtons/ControlButtons';
 import Messenger from '../Messenger/Messenger';

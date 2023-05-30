@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import UsersList from "./components/ActiveUsersList/UsersList";
+import UsersList from "./components/UsersList/UsersList";
+import UsersListClosed from "./components/UsersList/UsersListClosed";
 import * as webRTCHandler from "../connection/webRTC/webRTCHandler";
 import * as webRTCGroupHandler from "../connection/webRTC/GroupCallHandler";
-import Call from "./components/DirectCall/Call";
+import Call from "./components/Call/Call";
 import { connect } from "react-redux";
 import { LoginSignout } from "./components/Calendar/LoginSignout";
-import CallInfo from "./components/Dashboardinformation/CallInfo";
+import CallInfo from "./components/CallInfo/CallInfo";
 import { callStates } from "../storage/actions/callActions";
 import GroupCallRoomsList from "./components/GroupCallRoomsList/GroupCallRoomsList";
 import GroupCall from "./components/GroupCall/GroupCall";
@@ -20,18 +21,19 @@ import {
   deleteDoc,
 } from "firebase/firestore";
 import { db } from "./components/Todo/firebase";
+import { useHistory, Link } from "react-router-dom";
 import AddTodo from "./components/Todo/AddTodo";
 import VideoPlayer from "./components/Video/VideoPlayer";
 import AudioPlayer from "./components/Audio/AudioPlayer";
 import MainPagePomodoro from "./components/Pomodoro/MainPage";
 import ConfigurePage from "./components/Pomodoro/ConfigurePage";
 import Draggable from "react-draggable";
-import SignIn from "../googleSignIn/SignIn";
 const MainPage = ({ username, callState }) => {
   const [isConfigure, setIsConfigure] = useState(false);
   const [pomodoro, setPomodoro] = useState(0);
   const [pomoBreak, setPomoBreak] = useState(0);
   const [todos, setTodos] = React.useState([]);
+  const history = useHistory();
   const updateConfigure = (bool) => {
     setIsConfigure(bool);
   };
@@ -59,6 +61,10 @@ const MainPage = ({ username, callState }) => {
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id));
   };
+  const routeChange = () =>{ 
+    let path = `newPath`; 
+    history.push(path);
+  }
   //UseEffect to take eye on bool change
   useEffect(() => {
     setIsConfigure(isConfigure);
@@ -76,6 +82,7 @@ const MainPage = ({ username, callState }) => {
   const [showTodo, setShowTodo] = useState(true);
   const [showCall, setShowCall] = useState(true);
   const [showUsers, setShowUsers] = useState(true);
+  const [showUsersClosed, setShowUsersClosed] = useState(true);
   function videoNature() {
     var paths = ["SnUBb-FAlCY", "UZ9uyQI3pF0", "nAYUhMzclfk"];
 
@@ -156,8 +163,20 @@ const MainPage = ({ username, callState }) => {
       item +
       "?autoplay=1&controls=0&showinfo=0&autohide=1&loop=1&rel=0&vq=hd720&mute=1";
   }
+  function openListUsers() {
+    document.getElementById("users_list_closed").style.visibility = "hidden";
+    document.getElementById("users_list").style.visibility = "visible";
+    document.getElementById("users_list").style.right = "-100px";
+  }
+  function closeListUsers() {
+    document.getElementById("users_list_closed").style.visibility = "visible";
+    document.getElementById("users_list").style.visibility = "hidden";
+  }
+  function exitRoom() {
+  }
+
   return (
-    <div className="dashboard">
+    <div className="main">
       <iframe
         title="video_bg"
         id="video"
@@ -180,27 +199,35 @@ const MainPage = ({ username, callState }) => {
             setShowMenu(!showMenu);
           }}
         ></button>
-        <SignIn />
         <button
           className="start_call"
           onClick={() => {
             setShowCall(!showCall);
-            try {
-              if (
-                document.getElementById("call").style.visibility === "visible"
-              ) {
-                document.getElementById("call").style.visibility = "hidden";
-              } else if (
-                document.getElementById("call").style.visibility === "hidden"
-              ) {
-                document.getElementById("call").style.visibility = "visible";
-              }
-            } catch {
-              console.log("null");
-            }
+            // try {
+            //   if (
+            //     document.getElementById("call").style.visibility === "visible"
+            //   ) {
+            //     document.getElementById("call").style.visibility = "hidden";
+            //   } else if (
+            //     document.getElementById("call").style.visibility === "hidden"
+            //   ) {
+            //     document.getElementById("call").style.visibility = "visible";
+            //   }
+            // } catch {
+            //   console.log("null");
+            // }
           }}
         >
           <span className="create_call_title">Начать звонок</span>
+        </button>
+        <Link to="/" className="link_to_page">Sign up</Link>
+        <button className="sign_google_btn" onClick={exitRoom()}>
+          <span className="enter_google_title">Выход</span>
+          <img
+            className="google_icon"
+            src="https://img.icons8.com/?size=512&id=q4ZIbaRJl8l0&format=png"
+            alt="Выход"
+          ></img>
         </button>
       </div>
       <div className="main_container">
@@ -251,27 +278,29 @@ const MainPage = ({ username, callState }) => {
             <div className="instrument_buttons_container">
               <button
                 className="calendar_btn"
+                id="calendar_btn"
                 onClick={() => {
                   setShowCalendar(!showCalendar);
-                  try {
-                    if (
-                      document.getElementById("calendar").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("calendar").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("calendar").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("calendar").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("calendar").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("calendar").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("calendar").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("calendar").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
+                <label id="count"></label>
                 <img
                   className="instrument_icon_2"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/spiral-calendar_1f5d3-fe0f.png"
@@ -288,23 +317,23 @@ const MainPage = ({ username, callState }) => {
                 className="timer_btn"
                 onClick={() => {
                   setShowPomodoro(!showPomodoro);
-                  try {
-                    if (
-                      document.getElementById("timer").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("timer").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("timer").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("timer").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("timer").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("timer").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("timer").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("timer").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
                 <img
@@ -323,23 +352,23 @@ const MainPage = ({ username, callState }) => {
                 className="notes_btn"
                 onClick={() => {
                   setShowNotes(!showNotes);
-                  try {
-                    if (
-                      document.getElementById("notes").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("notes").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("notes").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("notes").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("notes").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("notes").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("notes").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("notes").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
                 <img
@@ -358,23 +387,23 @@ const MainPage = ({ username, callState }) => {
                 className="todo_btn"
                 onClick={() => {
                   setShowTodo(!showTodo);
-                  try {
-                    if (
-                      document.getElementById("todo").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("todo").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("todo").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("todo").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("todo").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("todo").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("todo").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("todo").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
                 <img
@@ -393,23 +422,23 @@ const MainPage = ({ username, callState }) => {
                 className="video_btn"
                 onClick={() => {
                   setShowVideo(!showVideo);
-                  try {
-                    if (
-                      document.getElementById("video").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("video").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("video").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("video").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("video").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("video").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("video").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("video").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
                 <img
@@ -428,23 +457,23 @@ const MainPage = ({ username, callState }) => {
                 className="sound_btn"
                 onClick={() => {
                   setShowAudio(!showAudio);
-                  try {
-                    if (
-                      document.getElementById("audio").style.visibility ===
-                      "visible"
-                    ) {
-                      document.getElementById("audio").style.visibility =
-                        "hidden";
-                    } else if (
-                      document.getElementById("audio").style.visibility ===
-                      "hidden"
-                    ) {
-                      document.getElementById("audio").style.visibility =
-                        "visible";
-                    }
-                  } catch {
-                    console.log("null");
-                  }
+                  // try {
+                  //   if (
+                  //     document.getElementById("audio").style.visibility ===
+                  //     "visible"
+                  //   ) {
+                  //     document.getElementById("audio").style.visibility =
+                  //       "hidden";
+                  //   } else if (
+                  //     document.getElementById("audio").style.visibility ===
+                  //     "hidden"
+                  //   ) {
+                  //     document.getElementById("audio").style.visibility =
+                  //       "visible";
+                  //   }
+                  // } catch {
+                  //   console.log("null");
+                  // }
                 }}
               >
                 <img
@@ -460,112 +489,122 @@ const MainPage = ({ username, callState }) => {
                 <span className="instrument_title_2">Звуки</span>
               </button>
             </div>
-            
           </div>
         )}
         {!showPomodoro && (
-              <Draggable>
-                <div className="timer_space" id="timer">
-                  <MainPagePomodoro
-                    updateConfigure={updateConfigure}
-                    pomodoro={pomodoro}
-                    pomoBreak={pomoBreak}
+          <Draggable>
+            <div className="timer_space" id="timer">
+              <MainPagePomodoro
+                updateConfigure={updateConfigure}
+                pomodoro={pomodoro}
+                pomoBreak={pomoBreak}
+              />
+              {isConfigure && (
+                <ConfigurePage
+                  updateConfigure={updateConfigure}
+                  updatePomodoro={updatePomodoro}
+                />
+              )}
+            </div>
+          </Draggable>
+        )}
+        {!showNotes && (
+          <Draggable>
+            <div className="notes_space">
+              <img
+                className="notes_icon"
+                src="https://img.icons8.com/?size=512&id=Vk1hVre0P58T&format=png"
+                alt="Календарь"
+              />
+              <span className="notes_instrument_title">Заметки</span>
+              <textarea className="notes_text"></textarea>
+            </div>
+          </Draggable>
+        )}
+        {!showTodo && (
+          <Draggable>
+            <div className="todo_space" id="todo">
+              <div className="todo_container">
+                {todos.map((todo) => (
+                  <DisplayTodo
+                    key={todo.id}
+                    todo={todo}
+                    toggleComplete={toggleComplete}
+                    handleDelete={handleDelete}
+                    handleEdit={handleEdit}
                   />
-                  {isConfigure && (
-                    <ConfigurePage
-                      updateConfigure={updateConfigure}
-                      updatePomodoro={updatePomodoro}
-                    />
-                  )}
-                </div>
-              </Draggable>
-            )}
-            {!showNotes && (
-              <Draggable>
-                <div className="notes_space">
-                  <img
-                    className="notes_icon"
-                    src="https://img.icons8.com/?size=512&id=Vk1hVre0P58T&format=png"
-                    alt="Календарь"
-                  />
-                  <span className="notes_instrument_title">Заметки</span>
-                  <textarea className="notes_text"></textarea>
-                </div>
-              </Draggable>
-            )}
-            {!showTodo && (
-              <Draggable>
-                <div className="todo_space" id="todo">
-                  <div className="todo_container">
-                    {todos.map((todo) => (
-                      <DisplayTodo
-                        key={todo.id}
-                        todo={todo}
-                        toggleComplete={toggleComplete}
-                        handleDelete={handleDelete}
-                        handleEdit={handleEdit}
-                      />
-                    ))}
-                  </div>
-                  <AddTodo />
-                </div>
-              </Draggable>
-            )}
-            {!showCall && (
-              <Draggable>
-              <div className="create_call_container">
-                
-                <div className="dashboard_content_container" id="call">
-                  <Call />
-                  {callState !== callStates.CALL_IN_PROGRESS && (
-                    <CallInfo username={username} />
-                  )}
-                  <GroupCall />
-                </div>
-                
-                <div className="dashboard_rooms_container">
-                  <GroupCallRoomsList />
-                </div>
+                ))}
               </div>
-              </Draggable>
-            )}
+              <AddTodo />
+            </div>
+          </Draggable>
+        )}
+        {!showCall && (
+          <Draggable>
+            <div className="create_call_container">
+              <div className="dashboard_content_container" id="call">
+                <Call />
+                {callState !== callStates.CALL_IN_PROGRESS && (
+                  <CallInfo username={username} />
+                )}
+                <GroupCall />
+              </div>
 
-            {!showCalendar && (
-              <Draggable>
-                <div className="calendar_space">
-                  <LoginSignout />
-                </div>
-              </Draggable>
-            )}
-            {!showAudio && (
-              <Draggable>
-                <div className="audio_space">
-                  <AudioPlayer />
-                </div>
-              </Draggable>
-            )}
-            {!showVideo && (
-              <Draggable>
-                <div className="video_space">
-                  <VideoPlayer />
-                </div>
-              </Draggable>
-            )}
-            {showUsers && (
-              <div></div>
-            )}
+              <div className="dashboard_rooms_container">
+                <GroupCallRoomsList />
+              </div>
+            </div>
+          </Draggable>
+        )}
+
+        {!showCalendar && (
+          <Draggable>
+            <div className="calendar_space">
+              <LoginSignout />
+            </div>
+          </Draggable>
+        )}
+        {!showAudio && (
+          <Draggable>
+            <div className="audio_space">
+              <AudioPlayer />
+            </div>
+          </Draggable>
+        )}
+        {!showVideo && (
+          <Draggable>
+            <div className="video_space">
+              <VideoPlayer />
+            </div>
+          </Draggable>
+        )}
       </div>
-      <div className="dashboard_active_users_list">
-        <div className="header_users_list" style={{height: "10%"}}>
-        <button className="close_active_users_list" onClick={() => {
-            setShowUsers(!showUsers);
-          }}>
-      </button>
-      <div className="label_users" style={{position: "relative", top: "35px", left: "20px"}}>
-        <label style={{position: "relative"}}>Участники</label>
+
+      <div className="mainpage_users_list_closed" id="users_list_closed">
+        <button
+          className="open_users_list"
+          onClick={() => {
+            openListUsers();
+          }}
+        />
+        <UsersListClosed />
+      </div>
+      <div className="dashboard_active_users_list" id="users_list">
+        <div className="header_users_list" style={{ height: "10%" }}>
+          <button
+            className="close_users_list"
+            onClick={() => {
+              closeListUsers();
+            }}
+          ></button>
+          <div
+            className="label_users"
+            style={{ position: "relative", top: "35px", left: "20px" }}
+          >
+            <label style={{ position: "relative" }}>Участники</label>
+          </div>
         </div>
-        </div>
-      
+
         <UsersList />
       </div>
     </div>

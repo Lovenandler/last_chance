@@ -1,0 +1,38 @@
+.user_list_image_closed{
+    width: 45px;
+    height: 45px;
+    position: relative;
+    float: left;
+    left: 5px;
+    top: 6px;
+  }
+  .user_list_text_closed{
+    position: relative;
+    float: left;
+    font-size: 8pt;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+      Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    left: 17px;
+    top: 9px;
+    text-align: center;
+    color: black;
+  }
+  .user_list_item_closed{
+    position: relative;
+    left: 40px;
+    width: 55px;
+    background-color: #dce6e7;
+  height: 75px;
+  border-radius: 10px;
+  }
+  .user_list_container_closed{
+    height: 200px;
+    position: relative;
+    top: 20px;
+    width: 100%;
+    overflow-y:auto;
+    display: grid;
+    grid-template-rows: repeat(auto-fit, 55px);
+    grid-gap: 30px;
+    justify-content: space-between;
+  }
