@@ -3,20 +3,7 @@ import React from 'react';
 import { hangUp } from '../../../utils/webRTC/webRTCHandler';
 import { MdCallEnd } from 'react-icons/md';
 
-// const styles = {
-//   buttonContainer: {
-//     marginTop: '10px',
-//     width: '40px',
-//     height: '40px',
-//     borderRadius: '40px',
-//     border: '2px solid #e6e5e8',
-//     display: 'flex',
-//     alignItems: 'center',
-//     justifyContent: 'center'
-//   }
-// };
-
-const CallingDialog = () => {
+const CallWindow = () => {
   const handleHangUpButtonPressed = () => {
     hangUp();
   };
@@ -31,4 +18,4 @@ const CallingDialog = () => {
   );
 };
 
-export default CallingDialog;
+export default CallWindow;

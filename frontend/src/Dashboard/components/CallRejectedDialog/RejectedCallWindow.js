@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 // import './CallRejectedDialog.css';
 
-const CallRejectedDialog = ({ reason, hideCallRejectedDialog }) => {
+const RejectedCallWindow = ({ reason, hideCallRejectedDialog }) => {
   useEffect(() => {
     setTimeout(() => {
       hideCallRejectedDialog({
@@ -22,4 +22,4 @@ const CallRejectedDialog = ({ reason, hideCallRejectedDialog }) => {
   );
 };
 
-export default CallRejectedDialog;
+export default RejectedCallWindow;

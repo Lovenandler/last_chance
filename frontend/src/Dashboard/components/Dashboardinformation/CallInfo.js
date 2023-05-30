@@ -1,8 +1,8 @@
 import React from 'react';
 
-import './Dashboardinformation.css';
+import './CallInfo.css';
 
-const DashboardInformation = ({ username }) => {
+const CallInfo = ({ username }) => {
   return (
     <div className='dashboard_info_text_container'>
       <span className='dashboard_info_text_title'>
@@ -15,4 +15,4 @@ const DashboardInformation = ({ username }) => {
   );
 };
 
-export default DashboardInformation;
+export default CallInfo;

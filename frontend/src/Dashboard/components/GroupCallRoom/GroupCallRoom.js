@@ -1,5 +1,5 @@
 import React from 'react';
-import ConversationButtons from '../ConversationButtons/ConversationButtons';
+import ControlButtons from '../ConversationButtons/ControlButtons';
 
 import './GroupCallRoom.css';
 import GroupCallVideo from './GroupCallVideo';
@@ -16,7 +16,7 @@ const GroupCallRoom = (props) => {
           })
         }
       </div>
-      <ConversationButtons {...props} groupCall />
+      <ControlButtons {...props} groupCall />
     </div>
   );
 };

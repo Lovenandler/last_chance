@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import GroupCallButton from '../GroupCallButton/GroupCallButton';
 import { callStates, setLocalCameraEnabled, setLocalMicrophoneEnabled } from '../../../store/actions/callActions';
-import * as webRTCGroupCallHandler from '../../../utils/webRTC/webRTCGroupCallHandler';
+import * as webRTCGroupCallHandler from '../../../utils/webRTC/GroupCallHandler';
 import GroupCallRoom from '../GroupCallRoom/GroupCallRoom';
 
 const GroupCall = (props) => {

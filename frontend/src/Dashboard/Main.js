@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
-import ActiveUsersList from "./components/ActiveUsersList/ActiveUsersList";
+import UsersList from "./components/ActiveUsersList/UsersList";
 import * as webRTCHandler from "../utils/webRTC/webRTCHandler";
-import * as webRTCGroupHandler from "../utils/webRTC/webRTCGroupCallHandler";
+import * as webRTCGroupHandler from "../utils/webRTC/GroupCallHandler";
 import DirectCall from "./components/DirectCall/DirectCall";
 import { connect } from "react-redux";
 import { LoginSignout } from "./components/Calendar/LoginSignout";
-import DashboardInformation from "./components/Dashboardinformation/Dashboardinformation";
+import CallInfo from "./components/Dashboardinformation/CallInfo";
 import { callStates } from "../store/actions/callActions";
 import GroupCallRoomsList from "./components/GroupCallRoomsList/GroupCallRoomsList";
 import GroupCall from "./components/GroupCall/GroupCall";
-import "./Dashboard.css";
+import "./Main.css";
 import DisplayTodo from "./components/Todo/DisplayTodo";
 import {
   collection,
@@ -518,7 +518,7 @@ const Dashboard = ({ username, callState }) => {
                 <div className="dashboard_content_container" id="call">
                   <DirectCall />
                   {callState !== callStates.CALL_IN_PROGRESS && (
-                    <DashboardInformation username={username} />
+                    <CallInfo username={username} />
                   )}
                   <GroupCall />
                 </div>
@@ -566,7 +566,7 @@ const Dashboard = ({ username, callState }) => {
         </div>
         </div>
       
-        <ActiveUsersList />
+        <UsersList />
       </div>
     </div>
   );

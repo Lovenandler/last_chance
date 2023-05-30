@@ -3,12 +3,12 @@ import { connect } from "react-redux";
 import UsernameInput from "./components/Usernameinput";
 import SubmitButton from "./components/SubmitButton";
 import { useHistory } from "react-router-dom";
-import { registerNewUser } from "../utils/wssConnection/wssConnection";
-import { setUsername } from "../store/actions/dashboardActions";
+import { registerNewUser } from "../utils/wssConnection/socketConnection";
+import { setUsername } from "../store/actions/mainActions";
 import { collection, addDoc } from "firebase/firestore";
 import {db} from '../Dashboard/components/Todo/firebase';
 
-import "./LoginPage.css";
+import "./StartPage.css";
 
 const LoginPage = ({ saveUsername }) => {
   const [username, setUsername] = useState("");

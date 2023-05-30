@@ -1,4 +1,4 @@
-import * as wss from '../wssConnection/wssConnection';
+import * as socketConnection from '../wssConnection/socketConnection';
 import store from '../../store/store';
 import { setGroupCallActive, setCallState, callStates, setGroupCallIncomingStreams, clearGroupCallData } from '../../store/actions/callActions';
 
@@ -34,7 +34,7 @@ export const connectWithMyPeer = () => {
 
 export const createNewGroupCall = () => {
   groupCallHost = true;
-  wss.registerGroupCall({
+  socketConnection.registerGroupCall({
     username: store.getState().dashboard.username,
     peerId: myPeerId
   });
@@ -47,7 +47,7 @@ export const joinGroupCall = (hostSocketId, roomId) => {
   const localStream = store.getState().call.localStream;
   groupCallRoomId = roomId;
 
-  wss.userWantsToJoinGroupCall({
+  socketConnection.userWantsToJoinGroupCall({
     peerId: myPeerId,
     hostSocketId,
     roomId,
@@ -75,11 +75,11 @@ export const connectToNewUser = (data) => {
 
 export const leaveGroupCall = () => {
   if (groupCallHost) {
-    wss.groupCallClosedByHost({
+    socketConnection.groupCallClosedByHost({
       peerId: myPeerId
     });
   } else {
-    wss.userLeftGroupCall({
+    socketConnection.userLeftGroupCall({
       streamId: store.getState().call.localStream.id,
       roomId: groupCallRoomId
     });

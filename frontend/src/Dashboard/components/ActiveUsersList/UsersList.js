@@ -1,10 +1,10 @@
 import { React, useState, useEffect } from "react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../Todo/firebase";
-import ActiveUsersListItem from "./ActiveUsersListItem";
+import ActiveUsersListItem from "./UsersListItem";
 import { connect } from "react-redux";
 
-import "./ActiveUsersList.css";
+import "./UsersList.css";
 
 const ActiveUsersList = ({ activeUsers, callState }) => {
   const [users, setUsers] = useState([]);

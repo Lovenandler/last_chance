@@ -4,9 +4,9 @@ Switch,
 Route
 } from 'react-router-dom';
 import {useEffect} from 'react';
-import {connectWithWebSocket} from './utils/wssConnection/wssConnection';
-import Dashboard from './Dashboard/Dashboard';
-import LoginPage from './LoginPage/LoginPage';
+import {connectWithWebSocket} from './utils/wssConnection/socketConnection';
+import MainPage from './Dashboard/Main';
+import StartPage from './LoginPage/StartPage';
 
 function App() {
   useEffect(() => {
@@ -16,10 +16,10 @@ function App() {
     <Router>
       <Switch>
         <Route path='/room'>
-          <Dashboard/>
+          <MainPage/>
         </Route>
         <Route path='/'>
-          <LoginPage/>
+          <StartPage/>
         </Route>
       </Switch>
     </Router>

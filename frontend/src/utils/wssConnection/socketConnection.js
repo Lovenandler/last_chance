@@ -1,8 +1,8 @@
 import socketClient from 'socket.io-client';
 import store from '../../store/store';
-import * as dashboardActions from '../../store/actions/dashboardActions';
+import * as mainActions from '../../store/actions/mainActions';
 import * as webRTCHandler from '../webRTC/webRTCHandler';
-import * as webRTCGroupCallHandler from '../webRTC/webRTCGroupCallHandler';
+import * as webRTCGroupCallHandler from '../webRTC/GroupCallHandler';
 
 const SERVER = 'http://localhost:5000';
 
@@ -115,7 +115,7 @@ const handleBroadcastEvents = (data) => {
   switch (data.event) {
     case broadcastEventTypes.ACTIVE_USERS:
       const activeUsers = data.activeUsers.filter(activeUser => activeUser.socketId !== socket.id);
-      store.dispatch(dashboardActions.setActiveUsers(activeUsers));
+      store.dispatch(mainActions.setActiveUsers(activeUsers));
       break;
     case broadcastEventTypes.GROUP_CALL_ROOMS:
       const groupCallRooms = data.groupCallRooms.filter(room => room.socketId !== socket.id);
@@ -127,7 +127,7 @@ const handleBroadcastEvents = (data) => {
           webRTCGroupCallHandler.clearGroupData();
         }
       }
-      store.dispatch(dashboardActions.setGroupCalls(groupCallRooms));
+      store.dispatch(mainActions.setGroupCalls(groupCallRooms));
       break;
     default:
       break;

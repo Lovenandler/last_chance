@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ConversationButton = (props) => {
+const ControlButton = (props) => {
   const { onClickHandler } = props;
   return (
     <button className='conversation_button' onClick={onClickHandler}>
@@ -9,4 +9,4 @@ const ConversationButton = (props) => {
   );
 };
 
-export default ConversationButton;
+export default ControlButton;

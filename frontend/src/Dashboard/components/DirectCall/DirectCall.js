@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LocalVideoView from '../LocalVideoView/LocalVideoView';
 import RemoteVideoView from '../RemoteVideoView/RemoteVideoView';
-import CallRejectedDialog from '../CallRejectedDialog/CallRejectedDialog';
+import RejectedCallWindow from '../CallRejectedDialog/RejectedCallWindow';
 import IncomingCallDialog from '../IncomingCallDialog/IncomingCallDialog';
-import CallingDialog from '../CallingDialog/CallingDialog';
+import CallWindow from '../CallingDialog/CallWindow';
 import { callStates, setCallRejected, setLocalCameraEnabled, setLocalMicrophoneEnabled, setMessage } from '../../../store/actions/callActions';
-import ConversationButtons from '../ConversationButtons/ConversationButtons';
+import ControlButtons from '../ConversationButtons/ControlButtons';
 import Messenger from '../Messenger/Messenger';
 
 const DirectCall = (props) => {
@@ -26,13 +26,13 @@ const DirectCall = (props) => {
     <>
       <LocalVideoView localStream={localStream} />
       {remoteStream && callState === callStates.CALL_IN_PROGRESS && <RemoteVideoView remoteStream={remoteStream} />}
-      {callRejected.rejected && <CallRejectedDialog
+      {callRejected.rejected && <RejectedCallWindow
         reason={callRejected.reason}
         hideCallRejectedDialog={hideCallRejectedDialog}
                                 />}
       {callState === callStates.CALL_REQUESTED && <IncomingCallDialog callerUsername={callerUsername} />}
-      {callingDialogVisible && <CallingDialog />}
-      {remoteStream && callState === callStates.CALL_IN_PROGRESS && <ConversationButtons {...props} />}
+      {callingDialogVisible && <CallWindow />}
+      {remoteStream && callState === callStates.CALL_IN_PROGRESS && <ControlButtons {...props} />}
       {remoteStream && callState === callStates.CALL_IN_PROGRESS && <Messenger message={message} setDirectCallMessage={setDirectCallMessage} />}
     </>
   );

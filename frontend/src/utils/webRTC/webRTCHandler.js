@@ -1,6 +1,6 @@
 import store from '../../store/store';
 import { setLocalStream, setCallState, callStates, setCallingDialogVisible, setCallerUsername, setCallRejected, setRemoteStream, setScreenSharingActive, resetCallDataState, setMessage } from '../../store/actions/callActions';
-import * as wss from '../wssConnection/wssConnection';
+import * as socketConnection from '../wssConnection/socketConnection';
 
 const preOfferAnswers = {
   CALL_ACCEPTED: 'CALL_ACCEPTED',
@@ -74,7 +74,7 @@ const createPeerConnection = () => {
   peerConnection.onicecandidate = (event) => {
     console.log('geeting candidates from stun server');
     if (event.candidate) {
-      wss.sendWebRTCCandidate({
+      socketConnection.sendWebRTCCandidate({
         candidate: event.candidate,
         connectedUserSocketId: connectedUserSocketId
       });
@@ -92,7 +92,7 @@ export const callToOtherUser = (calleeDetails) => {
   connectedUserSocketId = calleeDetails.socketId;
   store.dispatch(setCallState(callStates.CALL_IN_PROGRESS));
   store.dispatch(setCallingDialogVisible(true));
-  wss.sendPreOffer({
+  socketConnection.sendPreOffer({
     callee: calleeDetails,
     caller: {
       username: store.getState().dashboard.username
@@ -106,7 +106,7 @@ export const handlePreOffer = (data) => {
     store.dispatch(setCallerUsername(data.callerUsername));
     store.dispatch(setCallState(callStates.CALL_REQUESTED));
   } else {
-    wss.sendPreOfferAnswer({
+    socketConnection.sendPreOfferAnswer({
       callerSocketId: data.callerSocketId,
       answer: preOfferAnswers.CALL_NOT_AVAILABLE
     });
@@ -114,7 +114,7 @@ export const handlePreOffer = (data) => {
 };
 
 export const acceptIncomingCallRequest = () => {
-  wss.sendPreOfferAnswer({
+  socketConnection.sendPreOfferAnswer({
     callerSocketId: connectedUserSocketId,
     answer: preOfferAnswers.CALL_ACCEPTED
   });
@@ -123,7 +123,7 @@ export const acceptIncomingCallRequest = () => {
 };
 
 export const rejectIncomingCallRequest = () => {
-  wss.sendPreOfferAnswer({
+  socketConnection.sendPreOfferAnswer({
     callerSocketId: connectedUserSocketId,
     answer: preOfferAnswers.CALL_REJECTED
   });
@@ -154,7 +154,7 @@ export const handlePreOfferAnswer = (data) => {
 const sendOffer = async () => {
   const offer = await peerConnection.createOffer();
   await peerConnection.setLocalDescription(offer);
-  wss.sendWebRTCOffer({
+  socketConnection.sendWebRTCOffer({
     calleeSocketId: connectedUserSocketId,
     offer: offer
   });
@@ -164,7 +164,7 @@ export const handleOffer = async (data) => {
   await peerConnection.setRemoteDescription(data.offer);
   const answer = await peerConnection.createAnswer();
   await peerConnection.setLocalDescription(answer);
-  wss.sendWebRTCAnswer({
+  socketConnection.sendWebRTCAnswer({
     callerSocketId: connectedUserSocketId,
     answer: answer
   });
@@ -220,7 +220,7 @@ export const handleUserHangedUp = () => {
 };
 
 export const hangUp = () => {
-  wss.sendUserHangedUp({
+  socketConnection.sendUserHangedUp({
     connectedUserSocketId: connectedUserSocketId
   });
 
