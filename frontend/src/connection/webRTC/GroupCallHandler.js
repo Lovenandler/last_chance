@@ -35,7 +35,7 @@ export const connectWithMyPeer = () => {
 export const createNewGroupCall = () => {
   groupCallHost = true;
   socketConnection.registerGroupCall({
-    username: store.getState().mainpage.username,
+    username: store.getState().dashboard.username,
     peerId: myPeerId
   });
 
@@ -115,7 +115,7 @@ const addVideoStream = (incomingStream) => {
   store.dispatch(setGroupCallIncomingStreams(groupCallStreams));
 };
 
-// if group call is active return roomId if not return false
+// проверка группового вызова на активность
 export const checkActiveGroupCall = () => {
   if (store.getState().call.groupCallActive) {
     return groupCallRoomId;

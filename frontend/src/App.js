@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/room'>
+        <Route exact path='/room/:id'>
           <MainPage/>
         </Route>
         <Route path='/'>

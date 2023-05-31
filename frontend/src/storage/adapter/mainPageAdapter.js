@@ -8,17 +8,17 @@ const initState = {
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
-    case mainActions.MAINPAGE_SET_USERNAME:
+    case mainActions.DASHBOARD_SET_USERNAME:
       return {
         ...state,
         username: action.username
       };
-    case mainActions.MAINPAGE_SET_ACTIVE_USERS:
+    case mainActions.DASHBOARD_SET_ACTIVE_USERS:
       return {
         ...state,
         activeUsers: action.activeUsers
       };
-    case mainActions.MAINPAGE_SET_GROUP_CALL_ROOMS:
+    case mainActions.DASHBOARD_SET_GROUP_CALL_ROOMS:
       return {
         ...state,
         groupCallRooms: action.groupCallRooms

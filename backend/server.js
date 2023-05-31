@@ -34,7 +34,6 @@ const broadcastEventTypes = {
   ACTIVE_USERS: 'ACTIVE_USERS',
   GROUP_CALL_ROOMS: 'GROUP_CALL_ROOMS'
 };
-
 io.on('connection', (socket) => {
   socket.emit('connection', null);
   console.log('new user connected');
@@ -43,7 +42,8 @@ io.on('connection', (socket) => {
   socket.on('register-new-user', (data) => {
     peers.push({
       username: data.username,
-      socketId: data.socketId
+      socketId: data.socketId,
+      roomNum: data.roomNum
     });
     console.log('registered new user');
     console.log(peers);

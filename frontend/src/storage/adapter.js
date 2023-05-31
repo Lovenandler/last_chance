@@ -3,6 +3,6 @@ import mainAdapter from './adapter/mainPageAdapter';
 import callAdapter from './adapter/callAdapter';
 
 export default combineReducers({
-  mainpage: mainAdapter,
+  dashboard: mainAdapter,
   call: callAdapter
 });

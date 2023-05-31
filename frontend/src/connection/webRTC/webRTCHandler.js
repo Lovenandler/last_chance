@@ -52,7 +52,7 @@ const createPeerConnection = () => {
     store.dispatch(setRemoteStream(stream));
   };
 
-  // incoming data channel messages
+  // канал передачи данных и сообщения
   peerConnection.ondatachannel = (event) => {
     const dataChannel = event.channel;
 
@@ -95,7 +95,7 @@ export const callToOtherUser = (calleeDetails) => {
   socketConnection.sendPreOffer({
     callee: calleeDetails,
     caller: {
-      username: store.getState().mainpage.username
+      username: store.getState().dashboard.username
     }
   });
 };

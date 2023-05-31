@@ -7,29 +7,32 @@ import { connect } from "react-redux";
 import "./UsersList.css";
 
 const UsersList = ({ activeUsers, callState }) => {
-  const [users, setUsers] = useState([]);
+  // const [users, setUsers] = useState([]);
+  
+  // const fetchPost = async () => {
+  //   const queryString = window.location.search;
+  //   const urlParams = new URLSearchParams(queryString);
+  //   let roomId = urlParams.get("room");
+  //   const q = query(collection(db, "Rooms"), where("room", "==", roomId));
+  //   await getDocs(q).then((querySnapshot) => {
+  //     const newData = querySnapshot.docs.map((doc) => ({
+  //       ...doc.data(),
+  //       id: doc.id,
+  //     }));
+  //     setUsers(newData);
+  //     console.log(users, newData);
+  //   });
+  // // };
 
-  const fetchPost = async () => {
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    let roomId = urlParams.get("room");
-    const q = query(collection(db, "Rooms"), where("room", "==", roomId));
-    await getDocs(q).then((querySnapshot) => {
-      const newData = querySnapshot.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      }));
-      setUsers(newData);
-      console.log(users, newData);
-    });
-  };
-
-  useEffect(() => {
-    fetchPost();
-  }, []);
+  // useEffect(() => {
+  //   fetchPost();
+  // }, []);
   return (
+    
     <div className="user_list_container">
-      {users.map((activeUser, i) => (
+      {/* {users.map((activeUser, i) => ( */}
+      
+      {activeUsers.map((activeUser, i) => (
         <UsersListItem
           key={i}
           activeUser={activeUser}
@@ -40,8 +43,8 @@ const UsersList = ({ activeUsers, callState }) => {
   );
 };
 
-const mapStateToProps = ({ mainpage, call }) => ({
-  ...mainpage,
+const mapStateToProps = ({ dashboard, call }) => ({
+  ...dashboard,
   ...call,
 });
 

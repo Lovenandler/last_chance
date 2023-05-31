@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-// import './RejectedCallWindow.css';
+ import './RejectedCallWindow.css';
 
 const RejectedCallWindow = ({ reason, hideCallRejectedDialog }) => {
   useEffect(() => {

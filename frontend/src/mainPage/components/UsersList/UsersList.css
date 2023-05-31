@@ -25,12 +25,25 @@ height: 56px;
 border-radius: 10px;
 }
 .user_list_container{
-  height: 200px;
+  height: 250px;
   position: relative;
-  top: 45px;
+  top: 10px;
   overflow-y:auto;
   display: grid;
   grid-template-rows: repeat(auto-fit, 55px);
   grid-gap: 20px;
   justify-content: space-between;
+}
+.user_list_container::-webkit-scrollbar {
+  width: 7px;               /* width of the entire scrollbar */
+}
+
+.user_list_container::-webkit-scrollbar-track {
+  background: transparent;        /* color of the tracking area */
+}
+
+.user_list_container::-webkit-scrollbar-thumb {
+  background-color: lightgray;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: none;  /* creates padding around scroll thumb */
 }

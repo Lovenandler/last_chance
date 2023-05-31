@@ -25,7 +25,7 @@ export const connectWithWebSocket = () => {
     handleBroadcastEvents(data);
   });
 
-  // listeners related with direct call
+  // вызов
   socket.on('pre-offer', (data) => {
     webRTCHandler.handlePreOffer(data);
   });
@@ -60,14 +60,20 @@ export const connectWithWebSocket = () => {
   });
 };
 
-export const registerNewUser = (username) => {
+export const registerNewUser = (username, roomNum) => {
   socket.emit('register-new-user', {
     username: username,
+    socketId: socket.id,
+    roomNum: roomNum
+  });
+};
+export const registerNewRoomNum = (roomNum) => {
+  socket.emit('register-new-room-num', {
+    roomNum: roomNum,
     socketId: socket.id
   });
 };
-
-// emitting events to server related with direct call
+// отправка событий на сервер, связанных со звонком
 
 export const sendPreOffer = (data) => {
   socket.emit('pre-offer', data);
@@ -93,7 +99,7 @@ export const sendUserHangedUp = (data) => {
   socket.emit('user-hanged-up', data);
 };
 
-// emitting events related with group calls
+// отправка событий группового звонка
 
 export const registerGroupCall = (data) => {
   socket.emit('group-call-register', data);
@@ -114,8 +120,15 @@ export const groupCallClosedByHost = (data) => {
 const handleBroadcastEvents = (data) => {
   switch (data.event) {
     case broadcastEventTypes.ACTIVE_USERS:
-      const activeUsers = data.activeUsers.filter(activeUser => activeUser.socketId !== socket.id);
+      let urlNum = window.location.href.split('/')[4]
+      const activeUsers = data.activeUsers.filter(activeUser => activeUser.roomNum === urlNum);
+      // sessionStorage.setItem(activeUsers.map(function(name) {return name.username}))
       store.dispatch(mainActions.setActiveUsers(activeUsers));
+      let names = activeUsers.map(function(name) {return name.username})
+      sessionStorage.setItem('names', names)
+      
+      
+      
       break;
     case broadcastEventTypes.GROUP_CALL_ROOMS:
       const groupCallRooms = data.groupCallRooms.filter(room => room.socketId !== socket.id);

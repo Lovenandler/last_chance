@@ -25,7 +25,7 @@ const Main = (props) => {
     let remainingTimeinMs = _endTime - Date.now();
     _setRemainingTimeinMs(remainingTimeinMs);
     let remainingTimeinS = Math.round(remainingTimeinMs / 1000);
-    //Preparing for the two digits minutes & seconds
+    //Двузначные минуты и секунды
     let _tempMinute = Math.floor(remainingTimeinS / 60);
     let _tempSeconds = Math.floor(remainingTimeinS % 60);
     _tempMinute < 10 ? setMinutes(`0${_tempMinute}`) : setMinutes(_tempMinute);
@@ -33,7 +33,7 @@ const Main = (props) => {
       ? setSeconds(`0${_tempSeconds}`)
       : setSeconds(_tempSeconds);
   };
-  // Changing the play/pause btn
+  // Меняется кнопка проигрывать и пауза
   const changePlayBtn = () => {
     if (minutes === "00" && seconds === "00") return;
     setIsPlay(!isPlay);
@@ -49,7 +49,7 @@ const Main = (props) => {
       clearInterval(_interval);
     }
   };
-  //Timer Restart functionality
+  //Перезапуск таймера
   const restartFunction = () => {
     configureTime(pomodoro, pomoBreak);
     clearInterval(_interval);
@@ -61,7 +61,7 @@ const Main = (props) => {
     restartFunction();
     updateConfigure(true);
   };
-  // ChangingConfigure
+  // Меняются настройки
   useEffect(() => {
     configureTime(pomodoro, pomoBreak);
     if (!isBreak) {
@@ -70,7 +70,6 @@ const Main = (props) => {
       _setRemainingTimeinMs(pomoBreak * 60000);
     }
   }, [pomodoro, pomoBreak, isBreak]);
-  //useEffect
   useEffect(() => {
     if (
       minutes === "00" &&

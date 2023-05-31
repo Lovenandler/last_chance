@@ -65,7 +65,7 @@ const MainPage = ({ username, callState }) => {
     let path = `newPath`; 
     history.push(path);
   }
-  //UseEffect to take eye on bool change
+  //чтобы следить за изменениями
   useEffect(() => {
     setIsConfigure(isConfigure);
   }, [isConfigure]);
@@ -174,9 +174,11 @@ const MainPage = ({ username, callState }) => {
   }
   function exitRoom() {
   }
-
+  
   return (
+    
     <div className="main">
+      
       <iframe
         title="video_bg"
         id="video"
@@ -220,9 +222,8 @@ const MainPage = ({ username, callState }) => {
         >
           <span className="create_call_title">Начать звонок</span>
         </button>
-        <Link to="/" className="link_to_page">Sign up</Link>
         <button className="sign_google_btn" onClick={exitRoom()}>
-          <span className="enter_google_title">Выход</span>
+          <Link to="/" className="enter_google_title">Выход</Link>
           <img
             className="google_icon"
             src="https://img.icons8.com/?size=512&id=q4ZIbaRJl8l0&format=png"
@@ -548,6 +549,8 @@ const MainPage = ({ username, callState }) => {
                   <CallInfo username={username} />
                 )}
                 <GroupCall />
+                
+                
               </div>
 
               <div className="dashboard_rooms_container">
@@ -611,9 +614,9 @@ const MainPage = ({ username, callState }) => {
   );
 };
 
-const mapStateToProps = ({ call, mainpage }) => ({
+const mapStateToProps = ({ call, dashboard }) => ({
   ...call,
-  ...mainpage,
+  ...dashboard,
 });
 
 export default connect(mapStateToProps)(MainPage);

@@ -2,6 +2,15 @@
   overflow: hidden;
   /* outline: red dashed 1px; */
 }
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.834)
+      url("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif") center
+      no-repeat;
+  z-index: 1;
+}
 .header {
   background-color: #f2f2f2;
   width: 100%;
@@ -149,7 +158,16 @@
 .enter_google_title {
   position: relative;
   top: -10px;
+  text-decoration: none;
+  color: #000000;
 }
+.enter_google_title:hover {
+  position: relative;
+  top: -10px;
+  text-decoration: none;
+  color: #FFFFFF;
+}
+
 .google_icon {
   width: 40%;
   position: relative;
@@ -208,12 +226,24 @@
   border-radius: 125px;
   mask-image: radial-gradient(circle, white 100%, black 100%);
 }
+.main_info_container{
+  position: relative;
+  top: 250px;
+  left: 20px;
+}
 .video_cam{
-    width: 500px;
-  height: 500px;
+    width: 200px;
+  height: 200px;
   position: absolute;
-  top: -125px;
-  left: -125px;
+  top: 10px;
+  left: 140px;
+  border-radius: 50%;
+object-fit: cover;
+}
+.video_space{
+  background-color: #f2f2f2;
+  width: 42%;
+  border-radius: 20px;
 }
 .dashboard_content_container{
     
@@ -224,6 +254,7 @@
 .dashboard_rooms_container{
     width: 100px;
     height: 100px;
+    
 }
 .main_container {
   height: 800px;
@@ -805,6 +836,11 @@ textarea {
 .notes_btn:hover{
   background-color: #b4e915;
 }
+.audio_space{
+  background-color: #dce6e7;
+  border-radius: 20px;
+  width: 20%;
+}
 .todo_space{
   background-color: #dce6e7;
   border-radius: 20px;
@@ -885,8 +921,12 @@ textarea {
 input {
   outline: 0;
   border-width: 0 0 1px;
+  
   border-color: #1366d6;
   background-color: transparent;
+}
+input::placeholder{
+  color: #000000;
 }
 input:focus {
   border-color: #609966;

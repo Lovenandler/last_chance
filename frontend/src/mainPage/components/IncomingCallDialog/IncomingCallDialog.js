@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { acceptIncomingCallRequest, rejectIncomingCallRequest } from '../../../connection/webRTC/webRTCHandler';
-
-// import './IncomingCallDialog.css';
+import './IncomingCallDialog.css';
 
 const IncomingCallDialog = ({ callerUsername }) => {
   const handleAcceptButtonPressed = () => {
@@ -13,7 +12,9 @@ const IncomingCallDialog = ({ callerUsername }) => {
   };
 
   return (
+    <div>
     <div className='direct_call_dialog background_secondary_color'>
+      
       <span className='direct_call_dialog_caller_name'>{callerUsername}</span>
       <div className='direct_call_dialog_button_container'>
         <button className='direct_call_dialog_accept_button' onClick={handleAcceptButtonPressed}>
@@ -23,6 +24,7 @@ const IncomingCallDialog = ({ callerUsername }) => {
           Отклонить
         </button>
       </div>
+    </div>
     </div>
   );
 };

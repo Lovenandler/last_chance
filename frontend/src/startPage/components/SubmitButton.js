@@ -2,9 +2,9 @@ import React from 'react';
 
 const SubmitButton = ({ handleSubmitButtonPressed }) => {
   return (
-    <div className='login-page_button_container'>
+    <div className='start_page_button_container'>
       <button
-        className='login-page_button background_main_color text_main_color'
+        className='start_page_button'
         onClick={handleSubmitButtonPressed}
       >
       Войти

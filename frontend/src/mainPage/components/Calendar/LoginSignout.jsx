@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-
+import './LoginSignout.css'
 export const LoginSignout = () => {
   const googleApi = window.gapi;
   const google = window.google;
@@ -43,7 +43,7 @@ export const LoginSignout = () => {
     tokenClient = google.accounts.oauth2.initTokenClient({
       client_id: CLIENT_ID,
       scope: SCOPES,
-      callback: '', // defined later
+      callback: '', // определяется позже
     });
 
     googleDataInited = true;
@@ -113,8 +113,8 @@ export const LoginSignout = () => {
   
   return (
     <div className='calendar_space_return'>
-      <button id="authorize_button" hidden={accessToken && expiresIn} onClick={handleAuthClick}>Войти</button>
-      <button id="signout_button" hidden={!accessToken && !expiresIn}   onClick={handleSignoutClick}>Выйти</button>
+      <button id="authorize_button" className='enter_google_account' hidden={accessToken && expiresIn} onClick={handleAuthClick}>Войти</button>
+      <button id="signout_button" className='exit_google_account' hidden={!accessToken && !expiresIn}   onClick={handleSignoutClick}>Выйти</button>
       <pre id="content" className='events_content' style={{ whiteSpace: 'pre-wrap' }}></pre>
     </div>
   )

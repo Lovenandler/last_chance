@@ -12,9 +12,9 @@ const GroupCallRoomsList = (props) => {
   );
 };
 
-const mapStoreStateToProps = ({ mainpage }) => (
+const mapStoreStateToProps = ({ dashboard }) => (
   {
-    ...mainpage
+    ...dashboard
   }
 );
 

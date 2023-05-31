@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { sendMessageUsingDataChannel } from '../../../connection/webRTC/webRTCHandler';
 import MessageDisplayer from './MessageDisplayer';
 
-// import './Messenger.css';
+import './Messenger.css';
 
 const Messenger = ({ message, setDirectCallMessage }) => {
   const [inputValue, setInputValue] = useState('');
