@@ -236,6 +236,31 @@
   top: 250px;
   left: 20px;
 }
+.faq_instruments_img{
+  width: 20%;
+  border-radius: 20px;
+}
+.faq_close_img{
+  width: 40%;
+  border-radius: 20px;
+}
+.faq_space_img{
+  width: 30%;
+  border-radius: 20px;
+}
+.faq_create_call_img{
+  width: 30%;
+  border-radius: 20px;
+}
+.faq_group_call_img{
+  width: 40%;
+  border-radius: 20px;
+}
+.faq_exit_img{
+  width: 20%;
+  border-radius: 20px;
+}
+
 .video_cam{
     width: 200px;
   height: 200px;

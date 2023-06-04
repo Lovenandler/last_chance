@@ -62,6 +62,7 @@ const LoginPage = ({ saveUsername }) => {
       btn.addEventListener('click', () => {
           document.getElementById('carousel').style.visibility = 'hidden';
           document.getElementById('welcome_text').style.visibility = 'hidden';
+          document.getElementById('faq_docs_container').style.visibility = 'hidden';
           document.getElementById('start_page_register').style.visibility = 'visible';
       });
   });
@@ -72,6 +73,7 @@ const LoginPage = ({ saveUsername }) => {
       btn.addEventListener('click', () => {
           document.getElementById('carousel').style.visibility = 'hidden';
           document.getElementById('welcome_text').style.visibility = 'hidden';
+          document.getElementById('start_page_register').style.visibility = 'hidden';
           document.getElementById('faq_docs_container').style.visibility = 'visible';
       });
   });
@@ -82,6 +84,7 @@ const LoginPage = ({ saveUsername }) => {
       btn.addEventListener('click', () => {
           document.getElementById('carousel').style.visibility = 'visible';
           document.getElementById('welcome_text').style.visibility = 'visible';
+          document.getElementById('faq_docs_container').style.visibility = 'hidden';
           document.getElementById('start_page_register').style.visibility = 'hidden';
       });
   });
@@ -153,15 +156,29 @@ const LoginPage = ({ saveUsername }) => {
         <SubmitButton handleSubmitButtonPressed={handleSubmitButtonPressed} />
         </div>
         <div className="faq_docs_container" id="faq_docs_container">
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
-          <h1>Привет</h1>
+          <div className="faq_instruments">
+          <h1 className="title_faq">Меню инструментов</h1>
+          <p style={{textAlign: 'left'}}>Для того, чтобы получить доступ к инструментам, есть специальная панель</p>
+          <img className="faq_instruments_img" alt="меню инструментов" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/toolbar.jpg?alt=media&token=e3c5a9ea-8264-4196-9206-d748a5304b4d"></img>
+          <p style={{textAlign: 'left'}}>Её можно скрыть нажав на иконку сверху</p>
+          </div>
+          <h1>Как закрыть инструмент?</h1>
+          <p style={{textAlign: 'left'}}>Чтобы закрыть инструмент, необходимо нажать на иконку инструмента ещё раз и он исчезнет</p>
+          <img className="faq_close_img" alt="закрыть инструмент" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/close_widget.jpg?alt=media&token=8c56f7a2-b2b2-475f-aee9-08f4051503b8&_gl=1*4ozmg*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTkxMjQ2My4xMy4xLjE2ODU5MTI0NjkuMC4wLjA."></img>
+          <h1>Управляй своим пространством</h1>
+          <p style={{textAlign: 'left'}}>Нажми на иконку смайликов и фон будет меняться автоматически.</p>
+          <p style={{textAlign: 'left'}}>Жмякай, пока не найдешь тот, который тебе идеально подходит</p>
+          <img className="faq_space_img" alt="выбрать фон" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/choose_space.jpg?alt=media&token=dd98276d-133f-4d49-995c-78ff87a742e3&_gl=1*m9l1dv*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTkxMjQ2My4xMy4xLjE2ODU5MTMxMjcuMC4wLjA."></img>
+          <h1>Созванивайся с друзьями</h1>
+          <p style={{textAlign: 'left'}}>Чтобы создать звонок нажми на кнопку в верхнем углу и откроется панель всех возможностей звонка</p>
+          <img className="faq_create_call_img" alt="создать звонок" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/create_call.jpg?alt=media&token=b1bf47d3-7670-47e3-bdbc-6442f78bf362&_gl=1*8rwmol*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTkxMjQ2My4xMy4xLjE2ODU5MTM2NDguMC4wLjA."></img>
+          <h1>Создавай групповые комнаты</h1>
+          <p style={{textAlign: 'left'}}>Жми на кнопку "Создать комнату" и она отобразиться в списке доступных всем участникам.</p>
+          <p style={{textAlign: 'left'}}>Чтобы присоединиться к существующей, необходимо нажать на название желаемой комнаты и бум! Ты подключился!</p>
+          <img className="faq_group_call_img" alt="создать комнату" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/create_call_room.jpg?alt=media&token=8050161e-8361-4bd6-afbd-878426a06cf9&_gl=1*15zwj9p*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTkxMjQ2My4xMy4xLjE2ODU5MTM2MTIuMC4wLjA."></img>
+          <h1>Хочешь вернуться на главную страницу и покинуть комнату?</h1>
+          <p style={{textAlign: 'left'}}>Нажми на кнопку "Выход" и страница обновится.</p>
+          <img className="faq_exit_img" alt="закрыть инструмент" src="https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/leave_room.jpg?alt=media&token=05d777a5-afbd-44b0-b5c5-387639f0daea&_gl=1*9nq8q6*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTkxMjQ2My4xMy4xLjE2ODU5MTM2OTUuMC4wLjA."></img>
         </div>
       </div>
   );
