@@ -7,7 +7,7 @@ import { connect } from "react-redux";
 import "./UsersList.css";
 
 const UsersList = ({ activeUsers, callState }) => {
-  // const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState([]);
   
   // const fetchPost = async () => {
   //   const queryString = window.location.search;
@@ -22,16 +22,13 @@ const UsersList = ({ activeUsers, callState }) => {
   //     setUsers(newData);
   //     console.log(users, newData);
   //   });
-  // // };
+  // };
 
   // useEffect(() => {
   //   fetchPost();
   // }, []);
   return (
-    
     <div className="user_list_container">
-      {/* {users.map((activeUser, i) => ( */}
-      
       {activeUsers.map((activeUser, i) => (
         <UsersListItem
           key={i}

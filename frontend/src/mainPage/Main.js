@@ -30,6 +30,7 @@ import ConfigurePage from "./components/Pomodoro/ConfigurePage";
 import Draggable from "react-draggable";
 const MainPage = ({ username, callState }) => {
   const [isConfigure, setIsConfigure] = useState(false);
+  const [name, setName] = useState(false);
   const [pomodoro, setPomodoro] = useState(0);
   const [pomoBreak, setPomoBreak] = useState(0);
   const [todos, setTodos] = React.useState([]);
@@ -61,10 +62,6 @@ const MainPage = ({ username, callState }) => {
   const handleDelete = async (id) => {
     await deleteDoc(doc(db, "todos", id));
   };
-  const routeChange = () =>{ 
-    let path = `newPath`; 
-    history.push(path);
-  }
   //чтобы следить за изменениями
   useEffect(() => {
     setIsConfigure(isConfigure);
@@ -72,6 +69,9 @@ const MainPage = ({ username, callState }) => {
   useEffect(() => {
     webRTCHandler.getLocalStream();
     webRTCGroupHandler.connectWithMyPeer();
+  }, []);
+  useEffect(() => {
+    setName(window.sessionStorage.getItem('name'));
   }, []);
   const [showPomodoro, setShowPomodoro] = useState(true);
   const [showNotes, setShowNotes] = useState(true);
@@ -185,7 +185,7 @@ const MainPage = ({ username, callState }) => {
         style={{
           width: "150%",
           height: "150%",
-          position: "absolute",
+          position: "fixed",
           left: "50%",
           top: "30%",
           objectFit: "cover",
@@ -301,9 +301,8 @@ const MainPage = ({ username, callState }) => {
                   // }
                 }}
               >
-                <label id="count"></label>
-                <img
-                  className="instrument_icon_2"
+                <img style={{left: '5.7%'}}
+                  className="instrument_icon"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/spiral-calendar_1f5d3-fe0f.png"
                   alt="Календарь"
                 />
@@ -312,7 +311,7 @@ const MainPage = ({ username, callState }) => {
                   src="https://img.icons8.com/?size=512&id=39808&format=png"
                   alt="Перейти"
                 />
-                <span className="instrument_title">Календарь</span>
+                <span className="instrument_title" style={{left: '6.4%'}}>Календарь</span>
               </button>
               <button
                 className="timer_btn"
@@ -337,8 +336,8 @@ const MainPage = ({ username, callState }) => {
                   // }
                 }}
               >
-                <img
-                  className="instrument_icon_2"
+                <img style={{left: '15.3%'}}
+                  className="instrument_icon"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/hourglass-not-done_23f3.png"
                   alt="Таймер"
                 />
@@ -347,7 +346,7 @@ const MainPage = ({ username, callState }) => {
                   src="https://img.icons8.com/?size=512&id=39808&format=png"
                   alt="Перейти"
                 />
-                <span className="instrument_title">Таймер</span>
+                <span className="instrument_title" style={{left: '16.5%'}}>Таймер</span>
               </button>
               <button
                 className="notes_btn"
@@ -374,6 +373,7 @@ const MainPage = ({ username, callState }) => {
               >
                 <img
                   className="instrument_icon_2"
+                  style={{left: '6%'}}
                   src="https://em-content.zobj.net/thumbs/120/apple/354/pencil_270f-fe0f.png"
                   alt="Заметки"
                 />
@@ -382,7 +382,7 @@ const MainPage = ({ username, callState }) => {
                   src="https://img.icons8.com/?size=512&id=39808&format=png"
                   alt="Перейти"
                 />
-                <span className="instrument_title">Заметки</span>
+                <span className="instrument_title_2" style={{left: '7%'}}>Заметки</span>
               </button>
               <button
                 className="todo_btn"
@@ -407,7 +407,7 @@ const MainPage = ({ username, callState }) => {
                   // }
                 }}
               >
-                <img
+                <img style={{left: '15.5%'}}
                   className="instrument_icon_2"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/briefcase_1f4bc.png"
                   alt="Список дел"
@@ -443,7 +443,8 @@ const MainPage = ({ username, callState }) => {
                 }}
               >
                 <img
-                  className="instrument_icon_2"
+                style={{left: '6%'}}
+                  className="instrument_icon_3"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/film-frames_1f39e-fe0f.png"
                   alt="Видео"
                 />
@@ -452,7 +453,7 @@ const MainPage = ({ username, callState }) => {
                   src="https://img.icons8.com/?size=512&id=39808&format=png"
                   alt="Перейти"
                 />
-                <span className="instrument_title_2">Видео</span>
+                <span className="instrument_title_3" style={{left: '7.5%'}}>Видео</span>
               </button>
               <button
                 className="sound_btn"
@@ -477,8 +478,8 @@ const MainPage = ({ username, callState }) => {
                   // }
                 }}
               >
-                <img
-                  className="instrument_icon_2"
+                <img style={{left: '15.5%'}}
+                  className="instrument_icon_3"
                   src="https://em-content.zobj.net/thumbs/120/apple/354/headphone_1f3a7.png"
                   alt="Звуки"
                 />
@@ -487,7 +488,7 @@ const MainPage = ({ username, callState }) => {
                   src="https://img.icons8.com/?size=512&id=39808&format=png"
                   alt="Перейти"
                 />
-                <span className="instrument_title_2">Звуки</span>
+                <span className="instrument_title_3" style={{left: '17%'}}>Звуки</span>
               </button>
             </div>
           </div>
@@ -546,7 +547,7 @@ const MainPage = ({ username, callState }) => {
               <div className="dashboard_content_container" id="call">
                 <Call />
                 {callState !== callStates.CALL_IN_PROGRESS && (
-                  <CallInfo username={username} />
+                  <CallInfo username={name} />
                 )}
                 <GroupCall />
                 
@@ -592,7 +593,7 @@ const MainPage = ({ username, callState }) => {
         />
         <UsersListClosed />
       </div>
-      <div className="dashboard_active_users_list" id="users_list">
+      <div className="users_list" id="users_list">
         <div className="header_users_list" style={{ height: "10%" }}>
           <button
             className="close_users_list"

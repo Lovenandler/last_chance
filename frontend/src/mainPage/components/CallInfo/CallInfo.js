@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 
 import './CallInfo.css';
 
 const CallInfo = ({ username }) => {
+  
   return (
     <div className='main_info_container'>
       <span className='main_info_text_title'>

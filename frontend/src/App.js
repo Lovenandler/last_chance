@@ -20,6 +20,7 @@ function App() {
         <Route path='/'>
           <StartPage/>
         </Route>
+        
       </Switch>
     </Router>
   );

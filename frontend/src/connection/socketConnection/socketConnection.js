@@ -121,14 +121,19 @@ const handleBroadcastEvents = (data) => {
   switch (data.event) {
     case broadcastEventTypes.ACTIVE_USERS:
       let urlNum = window.location.href.split('/')[4]
-      const activeUsers = data.activeUsers.filter(activeUser => activeUser.roomNum === urlNum);
-      // sessionStorage.setItem(activeUsers.map(function(name) {return name.username}))
+      let activeUsers = []
+      if (data.activeUsers.length >= 2) 
+        {
+          activeUsers = data.activeUsers.filter(activeUser => activeUser.roomNum === urlNum)
+          console.log(data.activeUsers.map(({roomNum}) => roomNum).filter(function(num){
+            return num.roomNum === urlNum
+          }))
+        }else{
+          activeUsers = data.activeUsers
+        }
+      //const activeUsers = data.activeUsers.filter(activeUser => activeUser.roomNum === urlNum);
+      //sessionStorage.setItem('users', JSON.stringify(activeUsers.map(({username}) => username)))
       store.dispatch(mainActions.setActiveUsers(activeUsers));
-      let names = activeUsers.map(function(name) {return name.username})
-      sessionStorage.setItem('names', names)
-      
-      
-      
       break;
     case broadcastEventTypes.GROUP_CALL_ROOMS:
       const groupCallRooms = data.groupCallRooms.filter(room => room.socketId !== socket.id);
