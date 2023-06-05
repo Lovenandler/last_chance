@@ -166,7 +166,6 @@ const MainPage = ({ username, callState }) => {
   function openListUsers() {
     document.getElementById("users_list_closed").style.visibility = "hidden";
     document.getElementById("users_list").style.visibility = "visible";
-    document.getElementById("users_list").style.right = "-100px";
   }
   function closeListUsers() {
     document.getElementById("users_list_closed").style.visibility = "visible";
@@ -603,9 +602,8 @@ const MainPage = ({ username, callState }) => {
           ></button>
           <div
             className="label_users"
-            style={{ position: "relative", top: "35px", left: "20px" }}
           >
-            <label style={{ position: "relative" }}>Участники</label>
+            <label style={{ position: "fixed" }}>Участники</label>
           </div>
         </div>
 

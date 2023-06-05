@@ -1,24 +1,21 @@
 .user_list_image{
   width: 45px;
   height: 45px;
-  position: relative;
+  margin-left: 13%;
+  margin-top: 1.5%;
   float: left;
-  left: 30px;
-  top: 6px;
 }
 .user_list_text{
-  position: relative;
   float: right;
   font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
     Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  right: 70px;
-  top: 20px;
   color: black;
+  margin-right: 25%;
+  margin-top: 6%;
 }
 .user_list_item{
-  position: relative;
-  left: 30px;
-  top: 20px;
+  margin-left: 13%;
+  margin-top: 5%;
   width: 251px;
   background-color: #dce6e7;
 height: 56px;
@@ -26,8 +23,6 @@ border-radius: 10px;
 }
 .user_list_container{
   height: 250px;
-  position: relative;
-  top: 10px;
   overflow-y:auto;
   display: grid;
   grid-template-rows: repeat(auto-fit, 55px);

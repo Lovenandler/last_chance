@@ -244,6 +244,64 @@
   top: 4.5%;
   border: none;
 }
+.title_faq{
+  margin-left: 5%;
+  margin-top: 1%;
+  background-color: #b4e915;
+  width: 90%;
+}
+.faq_instruments_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 20%;
+  border-radius: 20px;
+}
+.faq_close_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 40%;
+  border-radius: 20px;
+}
+.faq_space_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 30%;
+  border-radius: 20px;
+}
+.faq_create_call_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 30%;
+  border-radius: 20px;
+}
+.faq_group_call_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 40%;
+  border-radius: 20px;
+}
+.faq_exit_img{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 20%;
+  border-radius: 20px;
+}
+.text_faq_end{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 90%;
+  background-color: #b4e915;
+}
+.faq_bye_image{
+  width: 5%;
+  margin-left: 1%;
+}
+
+.text_faq{
+  margin-left: 5%;
+  margin-top: 1%;
+  width: 90%;
+}
 
 .start_page_logo_image {
   width: 200px;
@@ -255,7 +313,7 @@
   top: 15%;
   overflow-y: scroll;
   height: 600px;
-  box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .start_page_title_container {

@@ -206,10 +206,11 @@
   height: 600px;
 }
 .mainpage_users_list_closed {
-  position: relative;
   float: right;
-  right: 20px;
-  top: -765px;
+  right: 2%;
+  position: fixed;
+  top: 13%;
+  margin-right: 2%;
   visibility: hidden;
   background: none;
   background: #f2f2f2;
@@ -235,30 +236,6 @@
   position: relative;
   top: 250px;
   left: 20px;
-}
-.faq_instruments_img{
-  width: 20%;
-  border-radius: 20px;
-}
-.faq_close_img{
-  width: 40%;
-  border-radius: 20px;
-}
-.faq_space_img{
-  width: 30%;
-  border-radius: 20px;
-}
-.faq_create_call_img{
-  width: 30%;
-  border-radius: 20px;
-}
-.faq_group_call_img{
-  width: 40%;
-  border-radius: 20px;
-}
-.faq_exit_img{
-  width: 20%;
-  border-radius: 20px;
 }
 
 .video_cam{
@@ -638,6 +615,8 @@ right: 7px;
 .label_users{
   font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,"Helvetica Neue",sans-serif;
   text-align: center;
+  margin-top: 5%;
+  margin-right: 20%;
 }
 .main_section{
   background-color: #FFFFFF;
