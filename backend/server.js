@@ -84,28 +84,29 @@ io.on('connection', (socket) => {
   });
 
   socket.on('pre-offer-answer', (data) => {
-    console.log('handling pre offer answer');
+    console.log('handle pre offer answer');
     io.to(data.callerSocketId).emit('pre-offer-answer', {
       answer: data.answer
     });
   });
 
   socket.on('webRTC-offer', (data) => {
-    console.log('handling webRTC offer');
+    console.log('handle webRTC offer');
     io.to(data.calleeSocketId).emit('webRTC-offer', {
       offer: data.offer
     });
   });
 
   socket.on('webRTC-answer', (data) => {
-    console.log('handling webRTC answer');
+    console.log('handle webRTC answer');
     io.to(data.callerSocketId).emit('webRTC-answer', {
       answer: data.answer
     });
   });
 
   socket.on('webRTC-candidate', (data) => {
-    console.log('handling ice candidate');
+    console.log('handle ice candidate');
+    //Interactive Connectivity Establishment - Установление интерактивной связи
     io.to(data.connectedUserSocketId).emit('webRTC-candidate', {
       candidate: data.candidate
     });
@@ -120,9 +121,9 @@ io.on('connection', (socket) => {
     socket.join(roomId);
 
     const newGroupCallRoom = {
-      peerId: data.peerId,
+      peerId: data.peerId, //id объекта
       hostName: data.username,
-      socketId: socket.id,
+      socketId: socket.id, //id соединения
       roomId: roomId
     };
 
