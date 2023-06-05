@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-const UsernameInput = (props) => {
+const StartPageInput = (props) => {
   const { username, setUsername, roomNum, setRoomNum } = props;
   
   useEffect(() => {
@@ -34,4 +34,4 @@ const UsernameInput = (props) => {
   );
 };
 
-export default UsernameInput;
+export default StartPageInput;
