@@ -8,7 +8,8 @@ const GroupCallRoomsListItem = ({ room }) => {
 
   return (
     <div onClick={handleListItemPressed} className='group_calls_list_item background_main_color'>
-      <span>{room.hostName}</span>
+      <img className='group_call_icon' src='https://em-content.zobj.net/thumbs/120/apple/354/croissant_1f950.png' alt=''></img>
+      <span className='group_call_name'>{room.hostName}</span>
     </div>
   );
 };

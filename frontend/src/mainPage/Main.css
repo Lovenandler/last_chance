@@ -219,7 +219,7 @@
   height: 600px;
 }
 .create_call_container{
-    background-color: #EBCFB2;
+    background-color: #f2f2f2;
     border-radius: 30px;
     width: 50%;
 }
@@ -252,15 +252,33 @@ object-fit: cover;
   width: 42%;
   border-radius: 20px;
 }
-.dashboard_content_container{
+.group_call_name{
+  text-align: center;
+  position: inherit;
+  margin-top: 17%;
+  margin-left: 9%;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+.group_call_icon{
+  margin-top: 5%;
+  margin-left: 8%;
+  position: inherit;
+  width: 10%;
+}
+.content_container{
     
-    background-color: #fff;
+    background-color: #f2f2f2;
     height: 600px;
     border-radius: 30px;
 }
-.dashboard_rooms_container{
-    width: 100px;
-    height: 100px;
+.rooms_container{
+  cursor: pointer;
+    width: 200px;
+    height: 200px;
+    border-radius: 20%;
+    background-color: #dce6e7;
+
     
 }
 .main_container {

@@ -10,7 +10,7 @@ import {
   registerNewRoomNum,
 } from "../connection/socketConnection/socketConnection";
 import { setUsername } from "../storage/actions/mainPageActions";
-import { collection, addDoc, query, where, getDocs } from "firebase/firestore";
+import { getDatabase, ref, set, child, push  } from "firebase/database";
 import { db } from "../mainPage/components/Todo/firebase";
 import "./StartPage.css";
 
@@ -25,15 +25,25 @@ const LoginPage = ({ saveUsername }) => {
     if (checkValue() === true) {
       registerNewUser(username, roomNum);
       saveUsername(username);
-      try {
-        const docRef = await addDoc(collection(db, "Rooms"), {
-          room: document.getElementById("input_num").value,
-          username: document.getElementById("input_username").value,
-        });
-        console.log("Document written with ID: ", docRef.id);
-      } catch (e) {
-        console.error("Error adding document: ", e);
+      try{
+          const db = getDatabase();
+          const newKey = push(child(ref(db), 'Rooms')).key;
+          set(ref(db, 'Rooms/' + roomNum), {
+            ID_User: username,
+            Room_name: roomNum
+          });
+      }catch(e){
+        console.log(e.message);
       }
+      // try {
+      //   const docRef = await addDoc(collection(db, "Rooms"), {
+      //     room: document.getElementById("input_num").value,
+      //     username: document.getElementById("input_username").value,
+      //   });
+      //   console.log("Document written with ID: ", docRef.id);
+      // } catch (e) {
+      //   console.error("Error adding document: ", e);
+      // }
       history.push(`/room/${roomNum}`);
     }
   };
@@ -117,7 +127,7 @@ const LoginPage = ({ saveUsername }) => {
         </div>
           <Carousel id="carousel" className="carousel_info" interval={6000} slide={false}>
       <Carousel.Item>
-      <img className="greeting_image" src='https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/Погулять%20с%20собакой.png?alt=media&token=386935e7-7a99-41de-97cf-93925d273d4e&_gl=1*h6yhah*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTcyNzgyMi44LjEuMTY4NTcyNzg3MC4wLjAuMA..' alt="Функционал без приложения"></img>
+      <img className="greeting_image" src='https://firebasestorage.googleapis.com/v0/b/utopia-386509.appspot.com/o/Frame%201.png?alt=media&token=677968b6-9e65-447f-b498-b869ea490d9e&_gl=1*k8lxpo*_ga*NTkxNDUyNTI2LjE2ODUwMDI3MjA.*_ga_CW55HF8NVT*MTY4NTk3MzkxNi4xNi4xLjE2ODU5NzM5MjYuMC4wLjA.' alt="Функционал без приложения"></img>
           <h1 className="works_title">Как работает и для чего это вообще?</h1>
         
       </Carousel.Item>

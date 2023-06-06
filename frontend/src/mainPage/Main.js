@@ -11,6 +11,7 @@ import { callStates } from "../storage/actions/callActions";
 import GroupCallRoomsList from "./components/GroupCallRoomsList/GroupCallRoomsList";
 import GroupCall from "./components/GroupCall/GroupCall";
 import "./Main.css";
+import { getDatabase, ref, child, push, update } from "firebase/database";
 import DisplayTodo from "./components/Todo/DisplayTodo";
 import {
   collection,
@@ -172,6 +173,21 @@ const MainPage = ({ username, callState }) => {
     document.getElementById("users_list").style.visibility = "hidden";
   }
   function exitRoom() {
+  //   const db = getDatabase();
+
+  // const Data = {
+  //   ID_User: null,
+  //   ID_room: null,
+  // };
+
+  // // Get a key for a new Post.
+  // const newPostKey = push(child(ref(db), 'posts')).key;
+  // const UserID = username
+  // // Write the new post's data simultaneously in the posts list and the user's post list.
+  // const updates = {};
+  // updates['/Rooms/'+ UserID] = Data;
+
+  // return update(ref(db), updates);
   }
   
   return (
@@ -543,7 +559,7 @@ const MainPage = ({ username, callState }) => {
         {!showCall && (
           <Draggable>
             <div className="create_call_container">
-              <div className="dashboard_content_container" id="call">
+              <div className="content_container" id="call">
                 <Call />
                 {callState !== callStates.CALL_IN_PROGRESS && (
                   <CallInfo username={name} />
@@ -553,7 +569,7 @@ const MainPage = ({ username, callState }) => {
                 
               </div>
 
-              <div className="dashboard_rooms_container">
+              <div className="rooms_container">
                 <GroupCallRoomsList />
               </div>
             </div>
