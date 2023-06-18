@@ -72,7 +72,7 @@ const createPeerConnection = () => {
   };
 
   peerConnection.onicecandidate = (event) => {
-    console.log('geeting candidates from stun server');
+    console.log('getting candidates from stun server');
     if (event.candidate) {
       socketConnection.sendWebRTCCandidate({
         candidate: event.candidate,
